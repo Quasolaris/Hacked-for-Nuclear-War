@@ -440,7 +440,7 @@ SYSTEM RESTART PROCESS
 ============================================
 
 "
-read -p "(Do you want to restart the system? (y/n): " response
+read -p "Do you want to restart the system? (y/n): " response
 if [[ "$response" = "y" || "$response" = "Y" ]]; then
 
 	printf "
@@ -457,43 +457,25 @@ PREPARING SYSTEM
 	if [[ "$run_system_check" == "true" ]]; then
 	printf "\n\nRUNNING FULL SYSTEM CHECK\n\n"
 	loading_animation
-	loading_animation
-	loading_animation
-	loading_animation
-	loading_animation
 	printf "\n\nFINSIHED FULL SYSTEM CHECK\n\n"
 	fi
 	if [[ "$run_memory_check" == "true" ]]; then
 	printf "\n\nRUNNING MEMORY CHECK\n\n"
-	loading_animation
-	loading_animation
-	loading_animation
 	loading_animation
 	printf "\n\nFINISHED MEMORY CHECK\n\n"
 	fi
 	if [[ "$run_storage_check" == "true" ]]; then
 	printf "\n\nRUNNING STORAGE CHECK\n\n"
 	loading_animation
-	loading_animation
-	loading_animation
-	loading_animation
 	printf "\n\nFINISHEDSTORAGE CHECK\n\n"
 	fi
 	if [[ "$run_kernel_recompile" == "true" ]]; then
 	printf "\n\nRECOMPILING KERNEL\n\n"
 	loading_animation
-	loading_animation 
-	loading_animation 
-	loading_animation 
-	loading_animation 
-	loading_animation 
-	loading_animation
 	printf "\n\nFINISHED KERNEL\n\n"
 	fi
 	if [[ "$run_boot_check" == "true" ]]; then
 	printf "\n\nRUNNING BOOT SECTOR CHECK\n\n"
-	loading_animation
-	loading_animation
 	loading_animation
 	printf "\n\nFINISHED BOOT SECTOR CHECK\n\n"
 	fi
@@ -576,16 +558,16 @@ read_logs() {
 	    fi
 	    	case $user_choice in
 		1)
-			glow -p evidence/launch_computer_output.log 
+			eval "$read_file_command" evidence/launch_computer_output.log 
 			;;
 		2)
-			glow -p evidence/launch_computer_output.log 
+			eval "$read_file_command" evidence/launch_computer_output.log 
 			;;
 		3)
-			glow -p evidence/launch_computer_output.log 
+			eval "$read_file_command" evidence/launch_computer_output.log 
 			;;
 		4)
-			glow -p evidence/launch_computer_output.log 
+			eval "$read_file_command" evidence/launch_computer_output.log 
 			;;
 		5)
 			echo "5"

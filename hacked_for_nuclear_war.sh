@@ -1,4 +1,12 @@
 #!/bin/bash
+
+
+# checking if glow is installed use it, if not use less
+if command -v glow &> /dev/null; then
+    read_file_command="glow -p"
+else
+    read_file_command="less"
+fi
 # killing mpv to stop background sound
 trap "pkill mpv" SIGINT
 
