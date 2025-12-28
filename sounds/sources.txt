@@ -8,3 +8,8 @@ message_received.opus: https://www.youtube.com/watch?v=JZG20WVbqng
 slbm_launch.opus: https://www.youtube.com/watch?v=hok2D_9Y6Ic
 slbm_launch_sound.opus: https://www.youtube.com/watch?v=1qUN59Oebe0
 emergency_blow.opus: https://www.youtube.com/watch?v=-1Am1gcKjAo
+boot_up_sound.opus: https://www.youtube.com/watch?v=692Z_adAsMQ
+computer_sound.opus: https://www.youtube.com/watch?v=cI6ygcSoGzg
+power_out.opus: https://www.youtube.com/watch?v=4qDeioLBiao
+power_on.opus: https://www.youtube.com/watch?v=4qDeioLBiao
+

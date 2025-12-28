@@ -11,6 +11,8 @@ send_report="8"
 user_choice=""
 task_done=0
 
+cold_reboot=false
+
 run_system_check=false
 run_memory_check=false
 run_storage_check=false
@@ -18,6 +20,29 @@ run_kernel_recompile=false
 run_boot_check=false
 run_enable_memprotect=false
 
+loading_animation() {
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+}
 set_error_check_states() {
 	error_string="$player_error_one $player_error_two $player_error_three"
 		if [[ "$error_string" == *"A1F0C0FFEE"* ]]; then
@@ -223,27 +248,7 @@ done
 secure_evidence() {
 	printf "\n\nCOLLECTING FORENSIC DATA\n\n"
 
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
-	sleep 1
-	printf "▣▣"
+	loading_animation
 
 	sleep 5
 
@@ -331,6 +336,9 @@ ERROR CODE LOOKUP
 			        clear
 			    fi
 			 	done
+			 	if [[ "$player_restart_process" == "1" ]]; then
+			 		cold_reboot=true
+			 	fi
 			done
 			;;
 		3)
@@ -424,7 +432,121 @@ done
 }
 
 restart_computer() {
-	echo "restarting"
+
+clear
+printf "
+============================================
+SYSTEM RESTART PROCESS
+============================================
+
+"
+read -p "(Do you want to restart the system? (y/n): " response
+if [[ "$response" = "y" || "$response" = "Y" ]]; then
+
+	printf "
+============================================
+SYSTEM RESTART INITIATED
+============================================
+
+PREPARING SYSTEM
+
+"
+	loading_animation
+	sleep 1
+
+	if [[ "$run_system_check" == "true" ]]; then
+	printf "\n\nRUNNING FULL SYSTEM CHECK\n\n"
+	loading_animation
+	loading_animation
+	loading_animation
+	loading_animation
+	loading_animation
+	printf "\n\nFINSIHED FULL SYSTEM CHECK\n\n"
+	fi
+	if [[ "$run_memory_check" == "true" ]]; then
+	printf "\n\nRUNNING MEMORY CHECK\n\n"
+	loading_animation
+	loading_animation
+	loading_animation
+	loading_animation
+	printf "\n\nFINISHED MEMORY CHECK\n\n"
+	fi
+	if [[ "$run_storage_check" == "true" ]]; then
+	printf "\n\nRUNNING STORAGE CHECK\n\n"
+	loading_animation
+	loading_animation
+	loading_animation
+	loading_animation
+	printf "\n\nFINISHEDSTORAGE CHECK\n\n"
+	fi
+	if [[ "$run_kernel_recompile" == "true" ]]; then
+	printf "\n\nRECOMPILING KERNEL\n\n"
+	loading_animation
+	loading_animation 
+	loading_animation 
+	loading_animation 
+	loading_animation 
+	loading_animation 
+	loading_animation
+	printf "\n\nFINISHED KERNEL\n\n"
+	fi
+	if [[ "$run_boot_check" == "true" ]]; then
+	printf "\n\nRUNNING BOOT SECTOR CHECK\n\n"
+	loading_animation
+	loading_animation
+	loading_animation
+	printf "\n\nFINISHED BOOT SECTOR CHECK\n\n"
+	fi
+	if [[ "$run_enable_memprotect" == "true" ]]; then
+	printf "\n\nENABLING MEMORY PROTECTION\n\n"
+	loading_animation
+	printf "\n\nMEMORY PROTECTION ENABLED\n\n"
+	fi
+
+	clear
+	sleep 15
+
+	if [[ "$cold_reboot" == "true" ]]; then
+		printf "DISCONNECTING POWER FOR COLD RESTART"
+		sleep 10
+		mpv --no-terminal sounds/power_out.opus 
+		sleep 10
+		mpv --no-terminal sounds/power_on.opus 
+	fi
+
+	clear
+	mpv --no-terminal sounds/computer_sound.opus &
+	printf "\n[INIT]\n"
+	loading_animation 
+	loading_animation
+	loading_animation 
+	loading_animation 
+	loading_animation 
+	sleep 3
+	clear
+printf "
+============================================
+SYSTEM RESTARTING
+============================================
+
+"
+	loading_animation
+	sleep 3
+	printf "\n\nRUNNING INTEGRITY CHECK\n\n"
+	loading_animation
+	loading_animation
+	loading_animation
+	loading_animation
+	printf "\n\nINTEGRITY CHECK COMPLETE\n\n"
+	sleep 5
+	clear
+	kill $!
+	login_screen
+
+else
+	printf "\n\nSYSTEM RESTART STOPPED"
+	sleep 3
+fi
 }
 
 read_dump() {

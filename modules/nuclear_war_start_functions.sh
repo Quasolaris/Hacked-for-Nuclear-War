@@ -495,26 +495,8 @@ slbm_launch_sequence() {
 
 }
 
-game_start_sequence() {
-	printf "
-\t ========================================  
-\t |\t\t\t\t\t|
-\t |\tHACKED FOR NUCLEAR WAR\t\t|
-\t |\t\t\t\t\t|
-\t ======================================== 
-	"
-
-	printf "
-
-YEAR: 2029
-
-You are the captain of one of many nuclear submarines armed with Submarine Launched Ballistic Missiles (SLBMs).
-The nuclear deterrence you provide is crucial for the security of our nation and world peace, do not take decisions lightly and be sure, that you do the right thing.
-
-"
-read -p "Press ENTER to start game:"
-
-	clear  
+login_screen() {
+		clear  
 	printf "
 =========================
 \t LOGIN
@@ -578,6 +560,27 @@ read -p "Press ENTER to start game:"
 	sleep 5
 
 	clear
+}
+
+game_start_sequence() {
+	printf "
+\t ========================================  
+\t |\t\t\t\t\t|
+\t |\tHACKED FOR NUCLEAR WAR\t\t|
+\t |\t\t\t\t\t|
+\t ======================================== 
+	"
+	printf "
+
+YEAR: 2029
+
+You are the captain of one of many nuclear submarines armed with Submarine Launched Ballistic Missiles (SLBMs).
+The nuclear deterrence you provide is crucial for the security of our nation and world peace, do not take decisions lightly and be sure, that you do the right thing.
+
+"
+read -p "Press ENTER to start game:"
+mpv --no-terminal sounds/boot_up_sound.opus &
+login_screen
 	
 	# Set nation of player
 	random_start=$(( 1 + RANDOM % 4 ))
