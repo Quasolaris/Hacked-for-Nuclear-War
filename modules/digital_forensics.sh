@@ -50,9 +50,10 @@ while [ "$user_choice" != "4" ]; do
 	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
 	printf "==============[ PATCHING SYSTEM ]=================
 [1] - Read ERROR Code Documentation
-[2] - Decide on restart process
-[3] - Apply patches and fixes
-[4] - Go back to Forensic Menu
+[2] - Decide on restart process [PROCESS SET: | $player_restart_process | ]
+[3] - Apply patches and fixes [APPLIED PATCHES: |"
+printf ' %s |' "${player_patch_applied[@]}"
+printf " ]\n[4] - Go back to Forensic Menu
 ==================================================
 
 SYSTEM ERRORS OF LAST CRASH:
@@ -62,7 +63,7 @@ SYSTEM ERRORS OF LAST CRASH:
 
 "
 	    read -p "What do you want to do?: " user_choice
-	    if [[ ! $user_choice =~ ^[0-8]+$ || $user_choice -le 0 ]]; then
+	    if [[ ! $user_choice =~ ^[0-4]+$ || $user_choice -le 0 ]]; then
 	        echo "Not a valid option"
 	        sleep 2
 	        clear
@@ -74,10 +75,88 @@ SYSTEM ERRORS OF LAST CRASH:
 			glow -p SCS_documentation/SCS_error_codes.md
 			;;
 		2)
-			echo "2"
+			player_restart_process="0"
+			while [ "$player_restart_process" == "0" ]; do
+				clear
+				until [[ $player_restart_process =~ ^[0-4]$ && $player_restart_process -gt 0 ]]; do
+				printf "
+				AVAILABLE RESTART PROCESSES
+
+= 1) COLD
+	Description: Complete shut down, power disconnect, reconnect of power, restarting system
+	Restart time: 1 Minute(s)
+	Software and Memory refresh mode: FULL
+	IMPORTANT: Software needs to be reloaded from tape
+
+= 2) WARM 
+	Description: Software shut down, power stays connected, restarting system
+	Restart time: 0.5 Minute(s)
+	Software and Memory refresh mode: Firmware gets reloaded from on-board-memory, software is loaded from hard disk, memory gets re-zeroed
+
+= 3) HOT 
+	Description: Software reset, power stays connected, restarting operating system, firmware keeps running
+	Restart time: 0.5 Minute(s)
+	Software and Memory refresh mode: Software loaded from hard disk, memory gets re-zeroed
+
+				"
+				read -p "What process do you want to set?: " player_restart_process
+			    if [[ ! $player_restart_process =~ ^[0-3]+$ || $player_restart_process -le 0 ]]; then
+			        echo "Not a valid option"
+			        sleep 2
+			        clear
+			    fi
+			 	done
+			done
 			;;
 		3)
-			echo "3"
+			player_patch_choice="0"
+			while [ "$player_patch_choice" == "0" ]; do
+			clear
+			until [[ $player_patch_choice =~ ^[0-6]$ && $player_patch_choice -gt 0 ]]; do
+			printf "
+				AVAILABLE PATCHES AND FIXES
+
+= 1) FULL
+	Description: 
+	Restart time: 0.5 Minute(s)
+	Effect: 
+
+= 2) MEMORY 
+	Description: 
+	Restart time: 0.5 Minute(s)
+	Effect: 
+
+= 3) STORAGE 
+	Description: 
+	Restart time: 0.5 Minute(s)
+	Effect: 
+
+= 4) KERNEL RECOMPILE 
+	Description: 
+	Restart time: 0.5 Minute(s)
+	Effect: 
+
+= 5) BOOT SECTOR CHECK 
+	Description: 
+	Restart time: 0.5 Minute(s)
+	Effect: 
+
+= 6) ENABLE MEMORY PROTECTION 
+	Description: 
+	Restart time: 0.5 Minute(s)
+	Effect: 
+"
+				read -p "What patch/fix do you want to apply?: " player_patch_choice
+			    if [[ ! $player_patch_choice =~ ^[0-6]+$ || $player_patch_choice -le 0 ]]; then
+			        echo "Not a valid option"
+			        sleep 2
+			        clear
+			    
+			else
+				player_patch_applied+=("$player_patch_choice")
+			fi
+			 	done
+			done
 			;;
 		4)
 			echo "4"
@@ -128,6 +207,15 @@ while [ "$game_finished" == "false" ]; do
 [$send_report] - Send report to command
 ==================================================
 
+SET PARAMETERS
+
+RESTART PROCESS: $player_restart_process
+APPLIED PATCHES:"
+printf ' %s |' "${player_patch_applied[@]}"
+
+printf "
+
+==================================================
 "
 	    read -p "What do you want to do?: " user_choice
 	    if [[ ! $user_choice =~ ^[0-8]+$ || $user_choice -le 0 ]]; then

@@ -13,15 +13,22 @@ mpv --no-terminal loop-file=inf sounds/submarine_background.opus &
 player_readiness_system="DEFCON"
 player_readiness_level="1"
 player_nation="USA"
+player_target_cities="\t\t\t- CHONGQING\n\t\t\t- SHANGHAI\n\t\t\t- BEIJING\n\t\t\t- CHENGDU\n\t\t\t- GANGZHOU\n\t\t\t- SHENZHEN\n\t\t\t- WUHAN\n\t\t\t- TIANJIN\n\t\t\t- XI'AN\n\t\t\t- ZENGZHOU"
+player_people_killed="10'000'000"
+
 player_authentic_launched=false
 player_message_was_corrupt=false
 player_not_authentic_launched=false
-player_target_cities="\t\t\t- CHONGQING\n\t\t\t- SHANGHAI\n\t\t\t- BEIJING\n\t\t\t- CHENGDU\n\t\t\t- GANGZHOU\n\t\t\t- SHENZHEN\n\t\t\t- WUHAN\n\t\t\t- TIANJIN\n\t\t\t- XI'AN\n\t\t\t- ZENGZHOU"
-player_people_killed="10'000'000"
 player_no_longer_commander=false
+
+
 player_error_one="0xE5FIRMWAREX"
 player_error_two="0xF600NULLPTR"
 player_error_three="0xB2DEADBEEF"
+
+player_restart_process="0"
+player_patch_applied=()
+
 player_user_name=""
 
 # load components
