@@ -20,6 +20,7 @@ player_authentic_launched=false
 player_message_was_corrupt=false
 player_not_authentic_launched=false
 player_no_longer_commander=false
+player_radiation_sickness=false
 
 
 player_error_one="0xE5FIRMWAREX"
@@ -31,20 +32,18 @@ player_patch_applied=()
 
 player_user_name=""
 
-# load components
-source modules/nation_selection.sh
-source modules/nuclear_war_start_functions.sh
-source modules/digital_forensics.sh
 
 
-START_TIME=$SECONDS
-# uncomment for full game -- DEBUG
-#game_start_sequence
+system_navigation_affected=false
+system_communication_affected=false
+system_weapons_affected=false
+system_slbm_affected=false
+system_power_affected=false
+system_reactor_affected=true
 
-digital_forensics
-
-
-ELAPSED_TIME=$(($SECONDS - $START_TIME))
+print_player_stats() {
+	clear
+	ELAPSED_TIME=$(($SECONDS - $START_TIME))
 printf "
 ==================[ PLAYER STATS ]==================
 Username:\t\t\t\t $player_user_name
@@ -59,7 +58,25 @@ Encountered Errors:
 = $player_error_one
 = $player_error_two
 = $player_error_three
+
+Crew got radiation sickness: $player_radiation_sickness
 ==================[ GAME FINISHED ]=================\n\n
 "
+pkill mpv
+}
+
+# load components
+source modules/nation_selection.sh
+source modules/nuclear_war_start_functions.sh
+source modules/digital_forensics.sh
+
+
+START_TIME=$SECONDS
+# uncomment for full game -- DEBUG
+#game_start_sequence
+
+digital_forensics
+
+print_player_stats
 
 pkill mpv

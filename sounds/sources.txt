@@ -7,3 +7,4 @@ loadin_coordinates.opus: lost to the internet and youtube algorithm
 message_received.opus: https://www.youtube.com/watch?v=JZG20WVbqng
 slbm_launch.opus: https://www.youtube.com/watch?v=hok2D_9Y6Ic
 slbm_launch_sound.opus: https://www.youtube.com/watch?v=1qUN59Oebe0
+emergency_blow.opus: https://www.youtube.com/watch?v=-1Am1gcKjAo

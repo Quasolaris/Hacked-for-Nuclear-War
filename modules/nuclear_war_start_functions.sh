@@ -18,7 +18,7 @@ error_codes=(
 	"$e6"
 )
 
-# Nuclear codes to verify order
+# nuclear codes to verify order
 one="ALPHA"
 two="BRAVO"
 three="TANGO"
@@ -510,7 +510,9 @@ You are the captain of one of many nuclear submarines armed with Submarine Launc
 The nuclear deterrence you provide is crucial for the security of our nation and world peace, do not take decisions lightly and be sure, that you do the right thing.
 
 "
+read -p "Press ENTER to start game:"
 
+	clear  
 	printf "
 =========================
 \t LOGIN
@@ -641,7 +643,7 @@ if [[ "$player_authentic_launched" == "true" || "$player_not_authentic_launched"
 ========================================================
 
 "
-	slbm_launch_sequence
+	slbm_launch_sequence | tee evidence/launch_computer_output.log
 
 	receiving_message
 

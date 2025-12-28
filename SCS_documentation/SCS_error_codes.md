@@ -54,7 +54,10 @@ Non-recoverable corruption detected within volatile memory space. Address bounda
 * Display freeze or signal dropout
 
 **Operator Action:**
-None. System is non-responsive.
+- Restart Needed (WARM)
+- Hardening Steps:
+	- ENABLE MEMORY PROTECTION
+	- Restart
 
 ---
 
@@ -73,7 +76,11 @@ Scheduler entered undefined execution state following conflicting interrupt vect
 * Hard system lock
 
 **Operator Action:**
-None. Await system timeout or power loss.
+- Restart Needed (COLD)
+- Required Steps:
+	- KERNEL RECOMPILE
+	- Restart
+
 
 ---
 
@@ -92,8 +99,10 @@ Boot record table unreadable or invalid. No viable startup partition detected.
 * System remains offline
 
 **Operator Action:**
-None. Maintenance authority required.
-
+- Restart Needed (WARM)
+- Required Steps:
+	- BOOT SECTOR CHECK
+	- Restart
 ---
 
 ### 0xD4STACK0VER
@@ -111,7 +120,10 @@ Stack depth exceeded safe limits. Return address overwritten.
 * Session data unrecoverable
 
 **Operator Action:**
-None.
+- Restart Needed (HOT)
+- Required Steps:
+	- MEMORY CHECK
+	- Restart
 
 ---
 
@@ -130,7 +142,10 @@ Firmware image checksum mismatch. Integrity verification failed.
 * All command functions disabled
 
 **Operator Action:**
-Do not attempt restart.
+- Restart Needed (COLD)
+- Required Steps:
+	- FULL SYSTEM CHECK
+	- Restart
 
 ---
 
@@ -149,7 +164,10 @@ Critical logic routine attempted invalid memory reference. Exception handling fa
 * Power cycle required
 
 **Operator Action:**
-None.
+- Restart Needed (HOT)
+- Required Steps:
+	- STORAGE CHECK
+	- Restart
 
 ---
 

@@ -12,6 +12,7 @@ user_choice=""
 task_done=0
 
 dive() {
+	clear
 	printf "\t === DIVING TO 1800 FEET\n\n"
 	mpv --no-terminal sounds/dive_crew_sound.opus &
 	sleep 18
@@ -34,8 +35,158 @@ dive() {
 	printf "\t === REACHED 1800 FEET - SHIP IS STEADY\n\n"
 }
 
+emergency_blow() {
+	clear
+	printf "=================================================="
+	printf "\n\t === COMMENCING EMERGENCY BLOW\n\n"
+	mpv --no-terminal sounds/emergency_blow.opus 
+	sleep 5
+	printf "\t === REACHED SURFACE - SHIP IS STEADY\n\n"
+	printf "=================================================="
+	sleep 10
+	print_player_stats
+pkill mpv
+exit 1
+}
+
 blast_analysis() {
-	echo "blast"
+
+	while [ "$user_choice" != "5" ]; do
+	clear
+	user_choice="0"
+	until [[ $user_choice =~ ^[0-6]$ && $user_choice -gt 0 ]]; do
+		printf "==============[ SUBMARINE SYSTEMS ]=================
+[1] - Navigation & Communication
+[2] - Weapons Control
+[3] - Power Management
+[4] - Decide on blast radius
+[5] - Go back to Forensics Menu
+[6] - Mark task as DONE
+=================================================="
+
+printf "
+
+	             ┌─────────────────────────┐
+	             │Submarine Command System │
+	             │         (SCS)           │
+	             └──────────┬──────────────┘
+	                        │
+	    ┌───────────────────┼───────────────────┐
+	    │                   │                   │
+	NAVIGATION           WEAPONS              POWER 
+	& COMMUNICATION      CONTROL             MANAGEMENT
+	                       │                    │
+	                   SLBM SYSTEM           REACTOR
+
+"
+
+printf "
+
+==================================================
+"
+	    read -p "What do you want to do?: " user_choice
+	    if [[ ! $user_choice =~ ^[0-6]+$ || $user_choice -le 0 ]]; then
+	        echo "Not a valid option"
+	        sleep 2
+	        clear
+	    fi
+	done
+
+	case $user_choice in
+		1)	
+			clear
+			printf "
+==================================================
+"
+			if [[ "$system_navigation_affected" == "true" ]]; then
+				printf "\n ====[ \e[31mNAV SYSTEM AFFECTED\e[0m\n\n"
+			else
+				printf "\n ====[ \e[42mNAV SYSTEM HEALTHY\e[0m\n\n"
+			fi
+
+			if [[ "$system_communication_affected" == "true" ]]; then
+				printf "\n ====[ \e[31mCOM SYSTEM AFFECTED\e[0m\n"
+			else
+				printf "\n ====[ \e[42mCOM SYSTEM HEALTHY\e[0m\n\n"
+			fi
+			printf "
+==================================================
+"
+			read -p "Press ENTER to go back"
+			;;
+		2)
+			clear
+			printf "
+==================================================
+"
+			if [[ "$system_weapons_affected" == "true" ]]; then
+				printf "\n ====[ \e[31mWEAPON SYSTEM AFFECTED\e[0m\n\n"
+			else
+				printf "\n ====[ \e[42mWEAPON SYSTEM HEALTHY\e[0m\n\n"
+			fi
+
+			if [[ "$system_slbm_affected" == "true" ]]; then
+				printf "\n ====[ \e[31mSLBM SYSTEM AFFECTED\e[0m\n"
+			else
+				printf "\n ====[ \e[42mSLBM SYSTEM HEALTHY\e[0m\n\n"
+			fi
+			printf "
+==================================================
+"
+			read -p "Press ENTER to go back"
+			;;
+		3)
+			clear
+printf "
+==================================================
+"
+			if [[ "$system_power_affected" == "true" ]]; then
+				printf "\n ====[ \e[31mPOWER MANAGEMENT SYSTEM AFFECTED\e[0m\n\n"
+			else
+				printf "\n ====[ \e[42mPOWER MANAGEMENT HEALTHY\e[0m\n\n"
+			fi
+
+			if [[ "$system_reactor_affected" == "true" ]]; then
+				printf "\n ====[ \e[31mREACTOR SYSTEM AFFECTED\e[0m\n
+
+				MEASURED RADIOACTIVITY OVER THRESHOLD
+				SURFACING SHIP AND EVACUATION IS ADVISED
+				"
+				mpv --no-terminal sounds/alarm_submarine_dive.opus &
+
+				printf "\nShould we surface the ship?\n\n"
+
+				read -p "(Y)es, surface the ship! | (N)o, we need to stay deep: " response
+				if [[ "$response" = "y" || "$response" = "Y" ]]; then
+					printf "
+					        ===>\tSURFACING SHIP\n\n"
+					        sleep 10
+					        emergency_blow
+				else
+					printf "\n\nSUBMARINE WILL STAY UNDER WATER"
+					player_radiation_sickness=true
+				fi
+
+			else
+				printf "\n ====[ \e[42mREACTOR SYSTEM HEALTHY\e[0m\n\n"
+			fi
+			printf "
+==================================================
+"
+			read -p "Press ENTER to go back"
+			;;
+		4)
+			
+			;;
+		5)
+			
+			;;
+		6)
+			blast_radius="X"
+			;;
+	esac
+done
+
 }
 
 secure_evidence() {
@@ -54,6 +205,7 @@ while [ "$user_choice" != "4" ]; do
 [3] - Apply patches and fixes [APPLIED PATCHES: |"
 printf ' %s |' "${player_patch_applied[@]}"
 printf " ]\n[4] - Go back to Forensic Menu
+[5] - Mark task as DONE
 ==================================================
 
 SYSTEM ERRORS OF LAST CRASH:
@@ -63,7 +215,7 @@ SYSTEM ERRORS OF LAST CRASH:
 
 "
 	    read -p "What do you want to do?: " user_choice
-	    if [[ ! $user_choice =~ ^[0-4]+$ || $user_choice -le 0 ]]; then
+	    if [[ ! $user_choice =~ ^[0-5]+$ || $user_choice -le 0 ]]; then
 	        echo "Not a valid option"
 	        sleep 2
 	        clear
@@ -78,19 +230,19 @@ SYSTEM ERRORS OF LAST CRASH:
 			player_restart_process="0"
 			while [ "$player_restart_process" == "0" ]; do
 				clear
-				until [[ $player_restart_process =~ ^[0-4]$ && $player_restart_process -gt 0 ]]; do
+				until [[ $player_restart_process =~ ^[0-3]$ && $player_restart_process -gt 0 ]]; do
 				printf "
 				AVAILABLE RESTART PROCESSES
 
 = 1) COLD
 	Description: Complete shut down, power disconnect, reconnect of power, restarting system
-	Restart time: 1 Minute(s)
+	Restart time: 2 Minute(s)
 	Software and Memory refresh mode: FULL
-	IMPORTANT: Software needs to be reloaded from tape
+	IMPORTANT: Software needs to be reloaded from tape, Firmware needs to be re-flashed by an engineer
 
 = 2) WARM 
 	Description: Software shut down, power stays connected, restarting system
-	Restart time: 0.5 Minute(s)
+	Restart time: 1 Minute(s)
 	Software and Memory refresh mode: Firmware gets reloaded from on-board-memory, software is loaded from hard disk, memory gets re-zeroed
 
 = 3) HOT 
@@ -116,17 +268,17 @@ SYSTEM ERRORS OF LAST CRASH:
 			printf "
 				AVAILABLE PATCHES AND FIXES
 
-= 1) FULL
+= 1) FULL SYSTEM CHECK
 	Description: 
 	Restart time: 0.5 Minute(s)
 	Effect: 
 
-= 2) MEMORY 
+= 2) MEMORY CHECK
 	Description: 
 	Restart time: 0.5 Minute(s)
 	Effect: 
 
-= 3) STORAGE 
+= 3) STORAGE CHECK
 	Description: 
 	Restart time: 0.5 Minute(s)
 	Effect: 
@@ -154,6 +306,7 @@ SYSTEM ERRORS OF LAST CRASH:
 			    
 			else
 				player_patch_applied+=("$player_patch_choice")
+				player_patch_applied=($(echo ${player_patch_applied[@]} | tr ' ' $'\n' | sort -u))
 			fi
 			 	done
 			done
@@ -162,7 +315,7 @@ SYSTEM ERRORS OF LAST CRASH:
 			echo "4"
 			;;
 		5)
-			echo "5"
+			patch_system="X"
 			;;
 	esac
 done
@@ -178,7 +331,48 @@ read_dump() {
 }
 
 read_logs() {
-	echo "log"
+	user_choice="0"
+	while [ "$user_choice" != "5" ]; do
+	clear
+	user_choice="0"
+	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
+	printf "==============[ LOG FILES]=================
+[1] - SLBM Launch sequence output
+[2] - System modules log files 
+[3] - Computer user access logs
+[4] - Communication logs
+[5] - Go back to Forensics Menu
+[6] - Mark task as DONE
+==================================================
+"
+	    read -p "What file do you want to analyse?: " user_choice
+	    if [[ ! $user_choice =~ ^[0-6]+$ || $user_choice -le 0 ]]; then
+	        echo "Not a valid option"
+	        sleep 2
+	        clear
+	    fi
+	    	case $user_choice in
+		1)
+			glow -p evidence/launch_computer_output.log 
+			;;
+		2)
+			glow -p evidence/launch_computer_output.log 
+			;;
+		3)
+			glow -p evidence/launch_computer_output.log 
+			;;
+		4)
+			glow -p evidence/launch_computer_output.log 
+			;;
+		5)
+			echo "5"
+			;;
+		6)
+			logs_read="X"
+			;;
+	esac
+	done
+done
 }
 
 determine_enemy(){
@@ -197,7 +391,7 @@ while [ "$game_finished" == "false" ]; do
 	user_choice="0"
 	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
 		printf "==============[ FORENSIC TASKS ]=================
-[$blast_radius] - Determine the blast radius of the cyber attack
+[$blast_radius] - Determine the blast radius of cyber attack
 [$secure_forensics] - Secure forensic data
 [$patch_system] - Patch systems
 [$restart_system] - Restart systems and run integrity check
@@ -210,7 +404,7 @@ while [ "$game_finished" == "false" ]; do
 SET PARAMETERS
 
 RESTART PROCESS: $player_restart_process
-APPLIED PATCHES:"
+APPLIED PATCHES: |"
 printf ' %s |' "${player_patch_applied[@]}"
 
 printf "
