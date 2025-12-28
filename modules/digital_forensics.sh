@@ -11,6 +11,36 @@ send_report="8"
 user_choice=""
 task_done=0
 
+run_system_check=false
+run_memory_check=false
+run_storage_check=false
+run_kernel_recompile=false
+run_boot_check=false
+run_enable_memprotect=false
+
+set_error_check_states() {
+	error_string="$player_error_one $player_error_two $player_error_three"
+		if [[ "$error_string" == *"A1F0C0FFEE"* ]]; then
+			system_memprotection_check=false
+		fi
+		if [[ "$error_string" == *"B2DEADBEEF"* ]]; then
+			system_kernel_check=false
+		fi
+		if [[ "$error_string" == *"C300MBR404"* ]]; then
+			system_boot_check=false
+		fi
+		if [[ "$error_string" == *"D4STACK0VER"* ]]; then
+			system_memory_check=false
+		fi
+		if [[ "$error_string" == *"E5FIRMWAREX"* ]]; then
+			system_full_check=false
+		fi
+		if [[ "$error_string" == *"F600NULLPTR"* ]]; then
+			system_storage_check=false
+		fi
+}
+
+
 dive() {
 	clear
 	printf "\t === DIVING TO 1800 FEET\n\n"
@@ -36,6 +66,8 @@ dive() {
 }
 
 emergency_blow() {
+	print_player_stats
+	sleep 20
 	clear
 	printf "=================================================="
 	printf "\n\t === COMMENCING EMERGENCY BLOW\n\n"
@@ -63,7 +95,6 @@ blast_analysis() {
 [5] - Go back to Forensics Menu
 [6] - Mark task as DONE
 =================================================="
-
 printf "
 
 	             ┌─────────────────────────┐
@@ -190,7 +221,37 @@ done
 }
 
 secure_evidence() {
-	echo "evidence"
+	printf "\n\nCOLLECTING FORENSIC DATA\n\n"
+
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+	sleep 1
+	printf "▣▣"
+
+	sleep 5
+
+	printf "\n\nDATA COLLECTED AND STORED INSIDE EVIDENCE DIRECTORY\n\n"
+
+	secure_forensics="X"
+
+	read -p "Press ENTER to return to Forensics Menu: " 
 }
 
 patching_system() {
@@ -208,11 +269,23 @@ printf " ]\n[4] - Go back to Forensic Menu
 [5] - Mark task as DONE
 ==================================================
 
-SYSTEM ERRORS OF LAST CRASH:
+SYSTEM ERRORS SINCE LAST REBOOT:
 = $player_error_one
 = $player_error_two
 = $player_error_three
 
+
+
+ERROR CODE LOOKUP
+
+0xA1F0C0FFEE\t MEMORY INTEGRITY FAILURE
+0xB2DEADBEEF\t KERNEL CONTROL FAILURE
+0xC300MBR404\t BOOT RECORD FAILURE
+0xD4STACK0VER\t EXECUTION STACK FAILURE
+0xE5FIRMWAREX\t FIRMWARE INTEGRITY FAILURE
+0xF600NULLPTR\t LOGIC EXECUTION FAILURE
+
+==================================================
 "
 	    read -p "What do you want to do?: " user_choice
 	    if [[ ! $user_choice =~ ^[0-5]+$ || $user_choice -le 0 ]]; then
@@ -297,14 +370,42 @@ SYSTEM ERRORS OF LAST CRASH:
 	Description: 
 	Restart time: 0.5 Minute(s)
 	Effect: 
+
+	
 "
-				read -p "What patch/fix do you want to apply?: " player_patch_choice
-			    if [[ ! $player_patch_choice =~ ^[0-6]+$ || $player_patch_choice -le 0 ]]; then
-			        echo "Not a valid option"
-			        sleep 2
-			        clear
+			read -p "What patch/fix do you want to apply?: " player_patch_choice
+		    if [[ ! $player_patch_choice =~ ^[0-6]+$ || $player_patch_choice -le 0 ]]; then
+		        echo "Not a valid option"
+		        sleep 2
+		        clear
 			    
 			else
+				case $player_patch_choice in
+				1)
+					system_full_check=true
+					run_system_check=true
+					;;
+				2)
+					system_memory_check=true
+					run_memory_check=true
+					;;
+				3)
+					system_storage_check=true
+					run_storage_check=true
+					;;
+				4)
+					system_kernel_check=true
+					run_kernel_recompile=true
+					;;
+				5)
+					system_boot_check=true
+					run_boot_check=true
+					;;
+				6)
+					system_memprotection_check=true
+					run_enable_memprotect=true
+					;;
+				esac
 				player_patch_applied+=("$player_patch_choice")
 				player_patch_applied=($(echo ${player_patch_applied[@]} | tr ' ' $'\n' | sort -u))
 			fi
@@ -391,12 +492,12 @@ while [ "$game_finished" == "false" ]; do
 	user_choice="0"
 	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
 		printf "==============[ FORENSIC TASKS ]=================
-[$blast_radius] - Determine the blast radius of cyber attack
+[$blast_radius] - Check Submarine Systems
 [$secure_forensics] - Secure forensic data
 [$patch_system] - Patch systems
 [$restart_system] - Restart systems and run integrity check
 [$core_dump] - Analyse core dump
-[$logs_read] - Analyse launch computer logs
+[$logs_read] - Analyse collected logs and evidence
 [$determine_attack] - Determine origin of attack
 [$send_report] - Send report to command
 ==================================================
@@ -463,6 +564,9 @@ To do so, you will have different tasks and operations you can do, the best way 
 
 "
 	read -p "Press ENTER to start investigation"
+
+	# set system based on generated errors
+	set_error_check_states
 
 	clear
 

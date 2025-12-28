@@ -491,6 +491,8 @@ slbm_launch_sequence() {
 	printf "\t\t\t=== LOG FILES STORED\n\n\n"
 	sleep 2
 	printf "\t\t\t=== LAUNCH COMPUTER SHUT DOWN\n\n\n"
+
+
 }
 
 game_start_sequence() {

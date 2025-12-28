@@ -23,9 +23,9 @@ player_no_longer_commander=false
 player_radiation_sickness=false
 
 
-player_error_one="0xE5FIRMWAREX"
-player_error_two="0xF600NULLPTR"
-player_error_three="0xB2DEADBEEF"
+player_error_one="0xA1F0C0FFEE"
+player_error_two="0xC300MBR404"
+player_error_three="0xD4STACK0VER"
 
 player_restart_process="0"
 player_patch_applied=()
@@ -36,10 +36,17 @@ player_user_name=""
 
 system_navigation_affected=false
 system_communication_affected=false
-system_weapons_affected=false
+system_weapons_affected=true
 system_slbm_affected=false
 system_power_affected=false
 system_reactor_affected=true
+
+system_full_check=true
+system_memory_check=true
+system_storage_check=true
+system_kernel_check=true
+system_boot_check=true
+system_memprotection_check=true
 
 print_player_stats() {
 	clear
@@ -54,10 +61,21 @@ Decided on corrupted message: \t\t $player_message_was_corrupt
 Launched an authenticated strike: \t $player_authentic_launched
 Launched a not authenticated strike: \t $player_not_authentic_launched
 
+
+=================[ SYSTEM STATS ]====================
+
 Encountered Errors:
 = $player_error_one
 = $player_error_two
 = $player_error_three
+
+Full System Check Status:\t $system_full_check
+Memory System Check Status: \t $system_memory_check
+Storage Check Status: \t $system_storage_check
+Kernel Recompile Check Status:\t $system_kernel_check
+Boot Sector Check Status\t $system_boot_check
+Memory Protection Enabled:\t $system_memprotection_check
+
 
 Crew got radiation sickness: $player_radiation_sickness
 ==================[ GAME FINISHED ]=================\n\n

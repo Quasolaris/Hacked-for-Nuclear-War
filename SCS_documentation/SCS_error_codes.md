@@ -9,7 +9,7 @@
 
 ### Overview
 
-The **Submarine Command System (SCS)** is a hardened, real-time computer used to control nuclear submarine systems. It is responsible for navigation, reactor control, weapons control and communication.
+The **Submarine Command System (SCS)** is a hardened, real-time (time-sharing) computer used to control nuclear submarine systems. It is responsible for navigation, reactor control, weapons control and communication.
 
 
 ---
