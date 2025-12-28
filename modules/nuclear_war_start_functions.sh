@@ -1,6 +1,23 @@
 # needed for random numbers
 set -euo pipefail
 
+# error codes
+e1="0xA1F0C0FFEE"
+e2="0xB2DEADBEEF"
+e3="0xC300MBR404"
+e4="0xD4STACK0VER"
+e5="0xE5FIRMWAREX"
+e6="0xF600NULLPTR"
+
+error_codes=(
+	"$e1"
+	"$e2"
+	"$e3"
+	"$e4"
+	"$e5"
+	"$e6"
+)
+
 # Nuclear codes to verify order
 one="ALPHA"
 two="BRAVO"
@@ -38,8 +55,6 @@ not_authentic_code=(
   "$nine"
   "$ten"
 )
-
-
 
 
 # ------------------------
@@ -292,6 +307,7 @@ GO DEEP AND WAIT FOR FURTHER ORDERS
 }
 
 authentic_nuclear_strike_not_launched() {
+	player_people_killed="0"
 	printf "
 
 ORDERS WERE AUTHENTIC 
@@ -311,6 +327,7 @@ YOU ARE RELIEVED FROM COMMAND
 }
 
 not_authentic_nuclear_strike_not_launched() {
+	player_people_killed="0"
 	printf "
 
 ORDERS WERE NOT AUTHENTIC
@@ -450,11 +467,19 @@ slbm_launch_sequence() {
 	sleep 5
 	mpv --no-terminal --loop-file=3 sounds/crash_system.opus &
 	sleep 7
-	printf "\t\t\t=== \e[31mERROR 0x354FA34BA\e[0m\n\n\n"
+
+	# random set error codes for future forensic targets
+	rand_index=$(( RANDOM % 6 ))
+	player_error_one="${error_codes[$rand_index]}"
+	printf "\t\t\t=== \e[31mERROR $player_error_one\e[0m\n\n\n"
 	sleep 15
-	printf "\t\t\t=== \e[31mERROR 0x3FFFA64CA\e[0m\n\n\n"
+	rand_index=$(( RANDOM % 6 ))
+	player_error_two="${error_codes[$rand_index]}"
+	printf "\t\t\t=== \e[31mERROR $player_error_two\e[0m\n\n\n"
 	sleep 18
-	printf "\t\t\t=== \e[31mERROR 0x354FA34BA\e[0m\n\n\n"
+	rand_index=$(( RANDOM % 6 ))
+	player_error_three="${error_codes[$rand_index]}"
+	printf "\t\t\t=== \e[31mERROR $player_error_three\e[0m\n\n\n"
 	sleep 5
 	printf "\t\t\t========================================================\n\n\n"
 	printf "\t\t\t=== LAUNCH SEQUENCE ABORTED\n\n\n"
@@ -491,7 +516,7 @@ The nuclear deterrence you provide is crucial for the security of our nation and
 \t LOGIN
 =========================
 "
-	read -p "Username: " username
+	read -p "Username: " player_user_name
 	read -p "Password: " -s
 
 	printf "\n\nVERIFYING USER\n\n"
@@ -638,7 +663,7 @@ fi
 printf "========================================================
 
 "
-	read -p "Press ENTER to dive and start investigation of possible cyber attack" -n1 
+	read -p "Press ENTER to dive and start investigation of possible cyber attack" 
 
 	printf "
 

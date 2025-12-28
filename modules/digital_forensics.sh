@@ -43,7 +43,51 @@ secure_evidence() {
 }
 
 patching_system() {
-	echo "patching"
+user_choice="0"
+while [ "$user_choice" != "4" ]; do
+	clear
+	user_choice="0"
+	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
+	printf "==============[ PATCHING SYSTEM ]=================
+[1] - Read ERROR Code Documentation
+[2] - Decide on restart process
+[3] - Apply patches and fixes
+[4] - Go back to Forensic Menu
+==================================================
+
+SYSTEM ERRORS OF LAST CRASH:
+= $player_error_one
+= $player_error_two
+= $player_error_three
+
+"
+	    read -p "What do you want to do?: " user_choice
+	    if [[ ! $user_choice =~ ^[0-8]+$ || $user_choice -le 0 ]]; then
+	        echo "Not a valid option"
+	        sleep 2
+	        clear
+	    fi
+	done
+
+	case $user_choice in
+		1)
+			glow -p SCS_documentation/SCS_error_codes.md
+			;;
+		2)
+			echo "2"
+			;;
+		3)
+			echo "3"
+			;;
+		4)
+			echo "4"
+			;;
+		5)
+			echo "5"
+			;;
+	esac
+done
+
 }
 
 restart_computer() {
@@ -68,7 +112,10 @@ report_sent() {
 
 
 forensic_action_menue() {
-
+game_finished=false
+while [ "$game_finished" == "false" ]; do
+	clear
+	user_choice="0"
 	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
 		printf "==============[ FORENSIC TASKS ]=================
 [$blast_radius] - Determine the blast radius of the cyber attack
@@ -116,7 +163,7 @@ forensic_action_menue() {
 			report_sent
 			;;
 	esac
-
+done
 
 }
 

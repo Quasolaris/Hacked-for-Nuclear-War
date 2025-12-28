@@ -22,7 +22,7 @@ RANK: \t\t\tCAPTAIN
 }
 
 fr_submarine(){
-	player_nation="FRENCH"
+	player_nation="FRANCE"
 	player_readiness_system="DEFCON"
 	player_readiness_level="2"
 	player_target_cities="\t\t\t- MOSCOW\n\t\t\t- SAINT PETERSBURG\n\t\t\t- NOVOSIBIRSK\n\t\t\t- YEKATERINBURG\n\t\t\t- KAZAN\n\t\t\t- NIZHNY NOVGOROD\n\t\t\t- KRASNOYARSK\n\t\t\t- CHELYABINSK\n\t\t\t- SAMARA\n\t\t\t- UFA"
