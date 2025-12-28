@@ -1,0 +1,9 @@
+Sound Sources
+dive_crew_sound.opus: https://www.youtube.com/watch?v=E_LJ3sFwGzg
+submarine_background.opus: https://www.youtube.com/watch?v=rhNo8daMVac
+crash_system.opus: https://www.youtube.com/watch?v=CYcbnFL2HS4
+alarm_submarine_dive.opus: https://www.youtube.com/shorts/H5wZCcM40PI
+loadin_coordinates.opus: lost to the internet and youtube algorithm
+message_received.opus: https://www.youtube.com/watch?v=JZG20WVbqng
+slbm_launch.opus: https://www.youtube.com/watch?v=hok2D_9Y6Ic
+slbm_launch_sound.opus: https://www.youtube.com/watch?v=1qUN59Oebe0
