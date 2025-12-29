@@ -3,7 +3,7 @@ us_submarine(){
 	player_readiness_system="DEFCON"
 	player_readiness_level="2"
 	player_target_cities="\t\t\t- CHONGQING\n\t\t\t- SHANGHAI\n\t\t\t- BEIJING\n\t\t\t- CHENGDU\n\t\t\t- GANGZHOU\n\t\t\t- SHENZHEN\n\t\t\t- WUHAN\n\t\t\t- TIANJIN\n\t\t\t- XI'AN\n\t\t\t- ZENGZHOU"
-	player_people_killed="171'250'000"
+	player_people_killed="100'043'000"
 
 	printf "
 
@@ -26,7 +26,7 @@ fr_submarine(){
 	player_readiness_system="DEFCON"
 	player_readiness_level="2"
 	player_target_cities="\t\t\t- MOSCOW\n\t\t\t- SAINT PETERSBURG\n\t\t\t- NOVOSIBIRSK\n\t\t\t- YEKATERINBURG\n\t\t\t- KAZAN\n\t\t\t- NIZHNY NOVGOROD\n\t\t\t- KRASNOYARSK\n\t\t\t- CHELYABINSK\n\t\t\t- SAMARA\n\t\t\t- UFA"
-	player_people_killed="28'857'000"
+	player_people_killed="21'577'000"
 
 	printf "
 
@@ -49,7 +49,7 @@ ru_submarine(){
 	player_readiness_system="степени боевой готовности"
 	player_readiness_level="3"
 	player_target_cities="\t\t\t- BERLIN\n\t\t\t- PARIS\n\t\t\t- WASHINGTON\n\t\t\t- LONDON\n\t\t\t- MADRID\n\t\t\t- WARSAW\n\t\t\t- CHICAGO\n\t\t\t- QUEBEC\n\t\t\t- LOS ANGELES\n\t\t\t- SEATTLE"
-	player_people_killed="42'300'000"
+	player_people_killed="25'469'540"
 
 	printf "
 
@@ -74,7 +74,7 @@ ch_submarine(){
 	player_readiness_system="Combat Readiness Condition"
 	player_readiness_level="2"
 	player_target_cities="\t\t\t- TAIPEI\n\t\t\t- TAICHUNG\n\t\t\t- SEOUL\n\t\t\t- WASHINGTON\n\t\t\t- CHICAGO\n\t\t\t- TOKYO\n\t\t\t- SEATTLE\n\t\t\t- HONOLULU\n\t\t\t- LOS ANGELES\n\t\t\t- BOSTON"
-	player_people_killed="61'000'000"
+	player_people_killed="52'707'000"
 
 	printf "
 

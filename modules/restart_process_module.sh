@@ -26,7 +26,7 @@ restart_process() {
 	clear
 	printf "
 	============================================
-	SYSTEM RESTART PROCESS
+		SYSTEM RESTART PROCESS
 	============================================
 
 	"
@@ -35,7 +35,7 @@ restart_process() {
 
 		printf "
 	============================================
-	SYSTEM RESTART INITIATED
+		SYSTEM RESTART INITIATED
 	============================================
 
 	PREPARING SYSTEM
@@ -79,7 +79,7 @@ restart_process() {
 		clear
 		printf "
 	============================================
-	SYSTEM SHUTDOWN
+		SYSTEM SHUTDOWN
 	============================================
 
 	"
@@ -119,7 +119,7 @@ restart_process() {
 		clear
 	printf "
 	============================================
-	SYSTEM RESTARTING
+		SYSTEM RESTARTING
 	============================================
 
 	"

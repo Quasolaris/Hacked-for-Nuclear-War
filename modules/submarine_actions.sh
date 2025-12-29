@@ -22,6 +22,28 @@ dive() {
 	printf "\t === REACHED 1800 FEET - SHIP IS STEADY\n\n"
 }
 
+surfacing() {
+	clear
+	printf "\t === SURFACING TO 160 FEET\n\n"
+	printf "\t\t1600 FEET\n\n"
+	sleep 5
+	printf "\t\t1400 FEET\n\n"
+	sleep 5
+	printf "\t\t1200 FEET\n\n"
+	sleep 5
+	printf "\t\t1000 FEET\n\n"
+	sleep 3
+	printf "\t\t800 FEET\n\n"
+	sleep 3
+	printf "\t\t600 FEET\n\n"
+	sleep 2
+	printf "\t\t400 FEET\n\n"
+	sleep 2
+	printf "\t\t200 FEET\n\n"
+	sleep 1
+	printf "\t === REACHED 160 FEET - SHIP IS STEADY\n\n"
+}
+
 emergency_blow() {
 	clear
 	printf "=================================================="

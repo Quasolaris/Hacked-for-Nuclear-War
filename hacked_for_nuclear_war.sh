@@ -7,15 +7,15 @@ if command -v glow &> /dev/null; then
 else
     read_file_command="less"
 fi
-# killing mpv to stop background sound if ^C is used
+# killing mpv to stop background sound if ^C is used and print game statistics
 trap "pkill mpv && print_player_stats" SIGINT
 
 
 clear
 
 
-# starting background
-mpv --no-terminal loop-file=inf sounds/submarine_background.opus &
+# starting background sound
+mpv --no-terminal --loop-file=inf sounds/submarine_background.opus &
 
 # variables for story - initial values for testing
 player_readiness_system="DEFCON"
@@ -39,6 +39,7 @@ player_restart_process="0"
 player_patch_applied=()
 
 player_user_name=""
+player_chosen_enemy="NaN"
 
 system_full_check=true
 system_memory_check=true
@@ -46,6 +47,10 @@ system_storage_check=true
 system_kernel_check=true
 system_boot_check=true
 system_memprotection_check=true
+
+attack_country="NaN"
+
+# set to false for normal run
 system_has_restarted=true
 
 # --------------------------
@@ -89,7 +94,6 @@ print_player_stats() {
 	printf "
 		==================[ PLAYER STATS ]==================
 
-
 		Username:\t\t\t\t $player_user_name
 		Time played:\t\t\t\t $(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec
 		Player Nation:\t\t\t\t $player_nation
@@ -97,10 +101,11 @@ print_player_stats() {
 		Decided on corrupted message: \t\t $player_message_was_corrupt
 		Launched an authenticated strike: \t $player_authentic_launched
 		Launched a not authenticated strike: \t $player_not_authentic_launched
-
+		Chosen Adversary:\t\t\t $player_chosen_enemy
 
 		=================[ SYSTEM STATS ]====================
 
+		Submarine was attacked by:\t\t $attack_country
 
 		Encountered Errors:
 		= $player_error_one
@@ -116,7 +121,6 @@ print_player_stats() {
 
 
 		Crew got radiation sickness:\t\t $player_radiation_sickness
-
 
 		==================[ GAME FINISHED ]=================\n\n
 "
@@ -137,7 +141,7 @@ set_submarine_system_health
 START_TIME=$SECONDS
 # uncomment for full game -- DEBUG
 #game_start_sequence
-
+submrine_gets_attacked
 digital_forensics
 
 print_player_stats

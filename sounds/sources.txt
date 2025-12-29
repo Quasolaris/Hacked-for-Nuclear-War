@@ -13,4 +13,7 @@ computer_sound.opus: https://www.youtube.com/watch?v=cI6ygcSoGzg
 power_out.opus: https://www.youtube.com/watch?v=4qDeioLBiao
 power_on.opus: https://www.youtube.com/watch?v=4qDeioLBiao
 tape_load.opus: https://www.youtube.com/shorts/VJ4o-5xkuP4
+transmission.opus: https://www.youtube.com/watch?v=76L3nr4E-R4
+sonar.opus: https://www.youtube.com/watch?v=VpF_K6ZBGIU
+torpedo.opus: https://www.youtube.com/watch?v=Gm3d61JZTKE
 

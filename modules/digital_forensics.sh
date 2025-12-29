@@ -133,12 +133,161 @@ You need to patch and restart your system first. Investigating the cause may tri
 
 
 determine_enemy(){
-	echo "determine"
+user_choice="0"
+while [ "$user_choice" != "7" ]; do
+	clear
+	user_choice="0"
+	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
+	printf "==============[ WHO IS RESPONSIBLE ]=================
+[1] - Lazarus Group [North Korea]
+[2] - APT28 [Russia]
+[3] - Volt Typhoon [China]
+[4] - NSA [USA]
+[5] - GCHQ [UK]
+[6] - DGSE [France]
+[7] - Go back to Forensics Menu
+[8] - Mark task as DONE
+==================================================
+
+		CHOSEN ADVERSARY: $player_chosen_enemy
+
+==================================================
+"
+	    read -p "What file do you want to analyse?: " user_choice
+	    if [[ ! $user_choice =~ ^[0-8]+$ || $user_choice -le 0 ]]; then
+	        echo "Not a valid option"
+	        sleep 2
+	        clear
+	    fi
+	    	case $user_choice in
+		1)
+			player_chosen_enemy="North Korea"
+			;;
+		2)
+			player_chosen_enemy="Russia"
+			;;
+		3)
+			player_chosen_enemy="China"
+			;;
+		4)
+			player_chosen_enemy="USA"
+			;;
+		5)
+			player_chosen_enemy="UK"
+			;;
+		6)
+			player_chosen_enemy="France"
+			;;
+		7)
+			echo "7"
+			;;
+		8)
+		determine_attack="X"
+			;;
+	esac
+	done
+done
 }
 
 report_sent() {
-	echo "report"
+	if [[ "$player_chosen_enemy" != "NaN" ]]; then
+printf "
+
+Do you want to compile and send the report? To send the report we will need to go up to 160 FEET, communication depth.
+
+"
+			read -p "(Y)es go up and send the report. (N)o, we need to investigate further. " response
+				if [[ "$response" = "y" || "$response" = "Y" ]]; then
+					sending_report_surface
+				fi
+	else
+		printf "You did not determine who the adversary is. Go back and finish your investigation."
+		sleep 5
+	fi
 }
 
+sending_report_surface() {
 
+	clear
+	printf "
+==================================
+	COMPILING REPORT
+==================================
 
+"
+	
+		# removing old report
+		rm evidence/report.md &> /dev/null
+		# compile new report with set enemy
+		cp template_logs/report_template.md evidence/report.md
+		sed -i "s/__APT_ACTOR__/${player_chosen_enemy}/g" evidence/report.md
+
+		loading_animation
+
+		printf "\n\n==================================\n\n"
+		read -p "Report ready, press ENTER to read:"
+		eval "$read_file_command" evidence/report.md 
+		printf "\n\n==================================\n\n"
+		read -p "Press ENTER to go up and send the report:"
+		surfacing
+		sleep 10
+		clear
+		printf "\n\n==================================
+
+SENDING REPORT AND FORENSIC EVIDENCE
+
+"
+		mpv --no-terminal sounds/transmission.opus &
+		loading_animation
+		sleep 1
+		printf "▣▣"
+		sleep 1
+		printf "▣▣"
+		sleep 1
+		printf "▣▣"
+		sleep 1
+		printf "▣▣"
+		sleep 1
+		printf "▣▣"
+		sleep 1
+		printf "▣▣"
+		sleep 1
+		printf "▣▣"
+		printf "\n\n==================================\n\nTRANSMISSION COMPLETE\n\n=================================="
+		sleep 15
+		clear
+		receiving_message
+		printf "
+REPORT RECEIVED
+
+DIVE AND AWAIT CONNTACT OVER ELF
+
+		"
+
+		end_received_message
+		sleep 15
+		print_player_stats
+		exit 1
+}
+
+submrine_gets_attacked() {
+
+	printf "\nCONTACT SIERRA BRAVO 
+	- DESIGNATE AS SIERRA-1 
+	- BEARING 218 
+	- COMES CLOSER\n"
+	sleep 16
+	printf "\nCONTACT SIERRA-1 IDENTIFIED AS SURFACE SHIP\n"
+	sleep 6
+	mpv --no-terminal --volume=50 --loop-file=inf sounds/sonar.opus &
+	sleep 4
+	printf "\nCONTACT SIERRA-1 TURNED ON SONAR\n"
+	sleep 16
+	printf "\nTORPEDO IN THE WATER TORPEDO IN THE WATER\n"
+	mpv --no-terminal --loop-file=inf sounds/alarm_submarine_dive.opus &
+	sleep 9
+	mpv --no-terminal --volume=80 --loop-file=inf sounds/torpedo.opus &
+	sleep 8
+	mpv --no-terminal sounds/dive_crew_sound.opus &
+	sleep 19
+}
