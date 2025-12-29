@@ -53,11 +53,12 @@ while [ "$game_finished" == "false" ]; do
 
 SET PARAMETERS
 
-RESTART PROCESS: $player_restart_process
-APPLIED PATCHES: |"
+RESTART PROCESS:\t $player_restart_process
+APPLIED PATCHES:\t |"
 printf ' %s |' "${player_patch_applied[@]}"
 
 printf "
+ATTACKING NATION:\t $player_chosen_enemy 
 
 ==================================================
 "
@@ -218,8 +219,11 @@ sending_report_surface() {
 	
 		# removing old report
 		rm evidence/report.md &> /dev/null
+		
 		# compile new report with set enemy
 		cp template_logs/report_template.md evidence/report.md
+
+		# replace place holder string with player chosen attacker
 		sed -i "s/__APT_ACTOR__/${player_chosen_enemy}/g" evidence/report.md
 
 		loading_animation

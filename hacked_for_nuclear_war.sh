@@ -48,6 +48,13 @@ system_kernel_check=true
 system_boot_check=true
 system_memprotection_check=true
 
+run_enable_memprotect=false
+run_boot_check=false
+run_kernel_recompile=false
+run_storage_check=false
+run_memory_check=false
+run_system_check=false
+
 attack_country="NaN"
 
 # set to false for normal run

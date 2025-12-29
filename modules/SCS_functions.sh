@@ -105,38 +105,19 @@ ERROR CODE LOOKUP
 			clear
 			until [[ $player_patch_choice =~ ^[0-6]$ && $player_patch_choice -gt 0 ]]; do
 			printf "
-				AVAILABLE PATCHES AND FIXES
+		AVAILABLE PATCHES AND FIXES
 
-= 1) FULL SYSTEM CHECK
-	Description: 
-	Restart time: 0.5 Minute(s)
-	Effect: 
+			= 1) FULL SYSTEM CHECK
 
-= 2) MEMORY CHECK
-	Description: 
-	Restart time: 0.5 Minute(s)
-	Effect: 
+			= 2) MEMORY CHECK
 
-= 3) STORAGE CHECK
-	Description: 
-	Restart time: 0.5 Minute(s)
-	Effect: 
+			= 3) STORAGE CHECK
 
-= 4) KERNEL RECOMPILE 
-	Description: 
-	Restart time: 0.5 Minute(s)
-	Effect: 
+			= 4) KERNEL RECOMPILE 
 
-= 5) BOOT SECTOR CHECK 
-	Description: 
-	Restart time: 0.5 Minute(s)
-	Effect: 
+			= 5) BOOT SECTOR CHECK 
 
-= 6) ENABLE MEMORY PROTECTION 
-	Description: 
-	Restart time: 0.5 Minute(s)
-	Effect: 
-
+			= 6) ENABLE MEMORY PROTECTION 
 	
 "
 			read -p "What patch/fix do you want to apply?: " player_patch_choice
