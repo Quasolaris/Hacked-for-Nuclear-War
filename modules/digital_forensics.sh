@@ -266,18 +266,20 @@ DIVE AND AWAIT CONNTACT OVER ELF
 
 		end_received_message
 		sleep 15
+		submrine_gets_attacked
 		print_player_stats
 		exit 1
 }
 
 submrine_gets_attacked() {
 
+	clear
 	printf "\nCONTACT SIERRA BRAVO 
 	- DESIGNATE AS SIERRA-1 
 	- BEARING 218 
 	- COMES CLOSER\n"
 	sleep 16
-	printf "\nCONTACT SIERRA-1 IDENTIFIED AS SURFACE SHIP\n"
+	printf "\nCONTACT SIERRA-1 IDENTIFIED AS SURFACE SHIP - POSSIBLE HOSTILE\n"
 	sleep 6
 	mpv --no-terminal --volume=50 --loop-file=inf sounds/sonar.opus &
 	sleep 4
@@ -289,5 +291,15 @@ submrine_gets_attacked() {
 	mpv --no-terminal --volume=80 --loop-file=inf sounds/torpedo.opus &
 	sleep 8
 	mpv --no-terminal sounds/dive_crew_sound.opus &
-	sleep 19
+	sleep 20
+	clear
+	for i in $(seq 1 15);
+	do
+	    printf "\nBRACE FOR IMPACT\n"
+	    sleep 0.5
+	done
+
+	
+
+
 }

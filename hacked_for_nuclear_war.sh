@@ -102,7 +102,7 @@ print_player_stats() {
 		Launched an authenticated strike: \t $player_authentic_launched
 		Launched a not authenticated strike: \t $player_not_authentic_launched
 		Chosen Adversary:\t\t\t $player_chosen_enemy
-
+				
 		=================[ SYSTEM STATS ]====================
 
 		Submarine was attacked by:\t\t $attack_country
@@ -141,7 +141,7 @@ set_submarine_system_health
 START_TIME=$SECONDS
 # uncomment for full game -- DEBUG
 #game_start_sequence
-submrine_gets_attacked
+
 digital_forensics
 
 print_player_stats
