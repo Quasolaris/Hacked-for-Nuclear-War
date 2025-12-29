@@ -3,11 +3,10 @@
 
 ```
 -----------------------------------------------------------------
-INTELLIGENCE ASSESSMENT
-JOINT ANALYSIS DIRECTORATE
+SCS CYBER INCIDENT ANALYSIS REPORT
 
 DOCUMENT NO.: JAD-SCS-79-11
-DATE: 02 NOVEMBER 1979 (SIMULATION)
+DATE: 02 NOVEMBER 2029 
 CLASSIFICATION: TOP SECRET // EYES ONLY
 -----------------------------------------------------------------
 ```
@@ -20,16 +19,16 @@ CLASSIFICATION: TOP SECRET // EYES ONLY
 
 ## KEY JUDGMENTS
 
-1. It is **highly likely** that the failure of the Submarine Command System resulted from **deliberate hostile action** conducted by a **foreign state-level adversary**, hereafter designated **ACTOR K**.
+1. It is **highly likely** that the failure of the Submarine Command System resulted from **deliberate hostile action** conducted by a **foreign state-level adversary**, the evidence points it to be **__APT_ACTOR__**.
 2. The pattern of system degradation is **inconsistent with random mechanical failure** and **consistent with intentional compromise**.
 3. The operation appears designed to **deny capability without overt destruction**, suggesting a strategic objective of **plausible deniability**.
-4. ACTOR K has demonstrated **prior interest and capability** in similar non-kinetic interference operations within the past decade (SIMULATION CONTEXT).
+4. __APT_ACTOR__ has demonstrated **prior interest and capability** in similar non-kinetic interference operations within the past decade (SIMULATION CONTEXT).
 
 ---
 
 ## BACKGROUND
 
-On [REDACTED DATE], the deep-ocean vessel operating the Submarine Command System experienced progressive system instability culminating in catastrophic command failure. No external damage or environmental anomaly sufficient to explain the failure was observed.
+On 01 NOVEMBER 2029, the deep-ocean vessel operating the Submarine Command System experienced progressive system instability culminating in catastrophic command failure. No external damage or environmental anomaly sufficient to explain the failure was observed.
 
 Initial maintenance analysis identified multiple simultaneous failures across otherwise independent subsystems.
 
@@ -48,7 +47,7 @@ Such patterns exceed expected coincidence for age-related or environmental degra
 
 ---
 
-### 2. Anomalous System Behavior
+### 2. Anomalous System Behaviour
 
 * Diagnostic logs showed **internally contradictory states**
 * Safeguards failed in a **non-random sequence**
@@ -71,7 +70,7 @@ Strongly supports a **non-physical attack vector**.
 
 ## ATTRIBUTION ASSESSMENT
 
-### ACTOR K (FICTIONAL)
+### __APT_ACTOR__ 
 
 **Profile Summary:**
 
@@ -106,11 +105,12 @@ Strongly supports a **non-physical attack vector**.
 The objective was likely to:
 
 * Render the vessel **mission-incapable**
-* Avoid escalation through overt attack
+* Push escalation to provoke or execute attack with SLBM
+* Start nuclear war under cover of our nations asset
 * Undermine confidence in system reliability
 * Force resource diversion to inspections and refits
 
-This aligns with ACTOR K doctrine emphasizing **strategic paralysis over destruction**.
+This aligns with __APT_ACTOR__ doctrine emphasizing **strategic paralysis and covert destruction**.
 
 ---
 
@@ -124,10 +124,9 @@ This aligns with ACTOR K doctrine emphasizing **strategic paralysis over destruc
 
 ## RECOMMENDED ACTIONS
 
-1. Expand counterintelligence review of maintenance and resupply procedures
+1. Expand counter-intelligence review of maintenance and resupply procedures
 2. Increase isolation between command authority and peripheral systems
 3. Conduct fleet-wide inspection for similar degradation signatures
-4. Maintain public ambiguity to avoid escalation
 
 ---
 
@@ -139,7 +138,7 @@ While direct evidence remains limited, the **convergence of indicators** support
 
 ```
 -----------------------------------------------------------------
-END OF ASSESSMENT
+END OF REPORT
 HANDLING RESTRICTIONS APPLY
 -----------------------------------------------------------------
 ```

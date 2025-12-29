@@ -3,9 +3,7 @@
 
 ```
 -----------------------------------------------------------------
-DEEP OCEAN VESSEL — INTEGRATED SYSTEM OVERVIEW
-(SCS-CENTRIC CONFIGURATION)
-SIMULATION / FICTIONAL PLATFORM
+CYBER WARFARE DOCUMENTATION
 -----------------------------------------------------------------
 ```
 
@@ -14,25 +12,23 @@ SIMULATION / FICTIONAL PLATFORM
 The vessel is organized around a centralized command computer known as the **Submarine Command System (SCS)**. All major subsystems either report to or receive authorization from the SCS.
 
 ```
-                 ┌─────────────────────────┐
-                 │  Submarine Command System   │
-                 │         (SCS)           │
-                 └──────────┬──────────────┘
-                            │
-        ┌───────────────────┼───────────────────┐
-        │                   │                   │
- NAVIGATION            PROPULSION           SENSOR SUITE
- & POSITIONING          CONTROL              (PASSIVE)
-        │                   │                   │
- COMMUNICATIONS        POWER MGMT          LIFE SUPPORT
- (INTERNAL/EXTERNAL)
+                ┌─────────────────────────┐
+                │Submarine Command System │
+                │         (SCS)           │
+                └──────────┬──────────────┘
+                           │
+       ┌───────────────────┼───────────────────┐
+       │                   │                   │
+   NAVIGATION           WEAPONS              POWER
+   & COMMUNICATION      CONTROL             MANAGEMENT
+                          │                    │
+                      SLBM SYSTEM           REACTOR
+
 ```
 
 ---
 
-## 2. CYBER ATTACK ENTRY POINTS (IN-UNIVERSE)
-
-In the game’s fiction, hostile code may be introduced through:
+## 2. CYBER ATTACK ENTRY POINTS 
 
 * Compromised removable data modules
 * Corrupted maintenance diagnostics
@@ -93,7 +89,7 @@ Command gating failure.
 
 **Operational Impact:**
 
-* Reduced maneuverability
+* Reduced manoeuvrability
 * Inability to execute precise depth or course changes
 * Emergency actions may be unavailable
 
@@ -128,6 +124,7 @@ Synchronization failure.
 * Garbled internal messages
 * Delayed or dropped command relays
 * External communication lockout
+* False alarms or missing alerts
 
 **Operational Impact:**
 
@@ -155,57 +152,27 @@ Load distribution instability.
 
 ---
 
-### 3.7 Life Support Monitoring
+### 3.7 SLBM Platform
 
 **Primary Effect:**
-Data integrity loss (monitoring only).
+Launch sequence failure.
 
 **Observed Symptoms:**
 
 * Conflicting environmental readings
-* False alarms or missing alerts
+* Crash of launch sequence or simulation sequence
+* Corrupt memory or storage readings
 
 **Operational Impact:**
 
-* Crew forced to rely on manual checks
-* Elevated fatigue and risk
-* Morale degradation
-
----
-
-## 4. CASCADING FAILURE SCENARIO (NARRATIVE FLOW)
-
-1. **Initial Intrusion**
-   No immediate symptoms. System operates nominally.
-
-2. **Trust Erosion Phase**
-   Minor warnings appear. Crew attributes issues to equipment age.
-
-3. **Command Desynchronization**
-   SCS begins issuing contradictory or delayed directives.
-
-4. **Subsystem Isolation**
-   Safety logic forces independent operation.
-
-5. **Catastrophic Fault**
-   SCS enters terminal failure state (see fault codes).
-
-6. **Operational Outcome**
-   Vessel becomes mission-incapable without external assistance.
-
----
-
-## 5. STRATEGIC CONSEQUENCES (IN-GAME)
-
-* Mission failure without obvious external damage
-* Crew uncertainty and mistrust of instruments
-* Difficulty proving hostile action occurred
-* Long-term removal of vessel from service
+* Launch aborted or only partially commenced
+* Flight computer not programmed correctly (faulty coordinates)
+* Possible detonation of warheads inside SLBM-Tube
 
 ---
 
 ```
 -----------------------------------------------------------------
-END OF SYSTEM OVERVIEW
+END OF CYBER WARFARE INCIDENT DOCUMENTATION
 -----------------------------------------------------------------
 ```

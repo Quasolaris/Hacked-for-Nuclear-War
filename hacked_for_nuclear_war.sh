@@ -8,7 +8,7 @@ else
     read_file_command="less"
 fi
 # killing mpv to stop background sound if ^C is used
-trap "pkill mpv" SIGINT
+trap "pkill mpv && print_player_stats" SIGINT
 
 
 clear
@@ -22,7 +22,7 @@ player_readiness_system="DEFCON"
 player_readiness_level="1"
 player_nation="USA"
 player_target_cities="\t\t\t- CHONGQING\n\t\t\t- SHANGHAI\n\t\t\t- BEIJING\n\t\t\t- CHENGDU\n\t\t\t- GANGZHOU\n\t\t\t- SHENZHEN\n\t\t\t- WUHAN\n\t\t\t- TIANJIN\n\t\t\t- XI'AN\n\t\t\t- ZENGZHOU"
-player_people_killed="10'000'000"
+player_people_killed="42'300'000"
 
 player_authentic_launched=false
 player_message_was_corrupt=false
@@ -46,7 +46,7 @@ system_storage_check=true
 system_kernel_check=true
 system_boot_check=true
 system_memprotection_check=true
-
+system_has_restarted=true
 
 # --------------------------
 # generated with Luma AI and modified by Quasolaris
@@ -86,34 +86,39 @@ player_radiation_sickness="$system_reactor_affected"
 print_player_stats() {
 	clear
 	ELAPSED_TIME=$(($SECONDS - $START_TIME))
-printf "
-==================[ PLAYER STATS ]==================
-Username:\t\t\t\t $player_user_name
-Time played:\t\t\t\t $(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec
-Player Nation:\t\t\t\t $player_nation
-People killed:\t\t\t\t $player_people_killed
-Decided on corrupted message: \t\t $player_message_was_corrupt
-Launched an authenticated strike: \t $player_authentic_launched
-Launched a not authenticated strike: \t $player_not_authentic_launched
+	printf "
+		==================[ PLAYER STATS ]==================
 
 
-=================[ SYSTEM STATS ]====================
-
-Encountered Errors:
-= $player_error_one
-= $player_error_two
-= $player_error_three
-
-Full System Check Status:\t $system_full_check
-Memory System Check Status: \t $system_memory_check
-Storage Check Status:\t\t $system_storage_check
-Kernel Recompile Check Status:\t $system_kernel_check
-Boot Sector Check Status\t $system_boot_check
-Memory Protection Enabled:\t $system_memprotection_check
+		Username:\t\t\t\t $player_user_name
+		Time played:\t\t\t\t $(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec
+		Player Nation:\t\t\t\t $player_nation
+		People killed:\t\t\t\t $player_people_killed
+		Decided on corrupted message: \t\t $player_message_was_corrupt
+		Launched an authenticated strike: \t $player_authentic_launched
+		Launched a not authenticated strike: \t $player_not_authentic_launched
 
 
-Crew got radiation sickness:\t $player_radiation_sickness
-==================[ GAME FINISHED ]=================\n\n
+		=================[ SYSTEM STATS ]====================
+
+
+		Encountered Errors:
+		= $player_error_one
+		= $player_error_two
+		= $player_error_three
+
+		Full System Check Status:\t\t $system_full_check
+		Memory System Check Status:\t\t $system_memory_check
+		Storage Check Status:\t\t\t $system_storage_check
+		Kernel Recompile Check Status:\t\t $system_kernel_check
+		Boot Sector Check Status\t\t $system_boot_check
+		Memory Protection Enabled:\t\t $system_memprotection_check
+
+
+		Crew got radiation sickness:\t\t $player_radiation_sickness
+
+
+		==================[ GAME FINISHED ]=================\n\n
 "
 pkill mpv
 }
@@ -122,6 +127,10 @@ pkill mpv
 source modules/nation_selection.sh
 source modules/nuclear_war_start_functions.sh
 source modules/digital_forensics.sh
+source modules/restart_process_module.sh
+source modules/read_logs_menu_function.sh
+source modules/submarine_actions.sh
+source modules/SCS_functions.sh
 
 set_submarine_system_health
 
