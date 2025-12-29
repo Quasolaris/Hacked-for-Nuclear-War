@@ -13,16 +13,16 @@
 			=== SET TARGETS BY STORED NAME
 
 
-			- TAIPEI
-			- TAICHUNG
-			- SEOUL
-			- WASHINGTON
-			- CHICAGO
-			- TOKYO
-			- SEATTLE
-			- HONOLULU
-			- LOS ANGELES
-			- BOSTON
+			- MOSCOW
+			- SAINT PETERSBURG
+			- NOVOSIBIRSK
+			- YEKATERINBURG
+			- KAZAN
+			- NIZHNY NOVGOROD
+			- KRASNOYARSK
+			- CHELYABINSK
+			- SAMARA
+			- UFA
 
 
 			=== CALCULATING TRAJECTORY AND PROGRAMMING FLIGHT COMPUTER
@@ -54,13 +54,13 @@
 			=== SLBM 4 LAUNCHED
 
 
-			=== [31mERROR 0xA1F0C0FFEE[0m
+			=== [31mERROR 0xF600NULLPTR[0m
 
 
-			=== [31mERROR 0xC300MBR404[0m
+			=== [31mERROR 0xE5FIRMWAREX[0m
 
 
-			=== [31mERROR 0xB2DEADBEEF[0m
+			=== [31mERROR 0xE5FIRMWAREX[0m
 
 
 			========================================================

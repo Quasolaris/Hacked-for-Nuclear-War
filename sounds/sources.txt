@@ -12,4 +12,5 @@ boot_up_sound.opus: https://www.youtube.com/watch?v=692Z_adAsMQ
 computer_sound.opus: https://www.youtube.com/watch?v=cI6ygcSoGzg
 power_out.opus: https://www.youtube.com/watch?v=4qDeioLBiao
 power_on.opus: https://www.youtube.com/watch?v=4qDeioLBiao
+tape_load.opus: https://www.youtube.com/shorts/VJ4o-5xkuP4
 

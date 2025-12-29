@@ -91,8 +91,6 @@ dive() {
 }
 
 emergency_blow() {
-	print_player_stats
-	sleep 20
 	clear
 	printf "=================================================="
 	printf "\n\t === COMMENCING EMERGENCY BLOW\n\n"
@@ -102,23 +100,22 @@ emergency_blow() {
 	printf "=================================================="
 	sleep 10
 	print_player_stats
-pkill mpv
-exit 1
+	pkill mpv
+	exit 1
 }
 
 blast_analysis() {
 
-	while [ "$user_choice" != "5" ]; do
+	while [ "$user_choice" != "4" ]; do
 	clear
 	user_choice="0"
-	until [[ $user_choice =~ ^[0-6]$ && $user_choice -gt 0 ]]; do
+	until [[ $user_choice =~ ^[0-5]$ && $user_choice -gt 0 ]]; do
 		printf "==============[ SUBMARINE SYSTEMS ]=================
 [1] - Navigation & Communication
 [2] - Weapons Control
 [3] - Power Management
-[4] - Decide on blast radius
-[5] - Go back to Forensics Menu
-[6] - Mark task as DONE
+[4] - Go back to Forensics Menu
+[5] - Mark task as DONE
 =================================================="
 printf "
 
@@ -217,10 +214,10 @@ printf "
 					printf "
 					        ===>\tSURFACING SHIP\n\n"
 					        sleep 10
+					        player_radiation_sickness=false
 					        emergency_blow
 				else
 					printf "\n\nSUBMARINE WILL STAY UNDER WATER"
-					player_radiation_sickness=true
 				fi
 
 			else
@@ -235,9 +232,6 @@ printf "
 			
 			;;
 		5)
-			
-			;;
-		6)
 			blast_radius="X"
 			;;
 	esac
@@ -321,7 +315,7 @@ ERROR CODE LOOKUP
 = 2) WARM 
 	Description: Software shut down, power stays connected, restarting system
 	Restart time: 1 Minute(s)
-	Software and Memory refresh mode: Firmware gets reloaded from on-board-memory, software is loaded from hard disk, memory gets re-zeroed
+	Software and Memory refresh mode: Firmware gets reloaded from on-board-memory, software is loaded from tape, memory gets re-zeroed
 
 = 3) HOT 
 	Description: Software reset, power stays connected, restarting operating system, firmware keeps running
@@ -336,9 +330,6 @@ ERROR CODE LOOKUP
 			        clear
 			    fi
 			 	done
-			 	if [[ "$player_restart_process" == "1" ]]; then
-			 		cold_reboot=true
-			 	fi
 			done
 			;;
 		3)
@@ -485,24 +476,45 @@ PREPARING SYSTEM
 	printf "\n\nMEMORY PROTECTION ENABLED\n\n"
 	fi
 
+	sleep 5
 	clear
+	printf "
+============================================
+SYSTEM SHUTDOWN
+============================================
+
+"
 	sleep 15
 
-	if [[ "$cold_reboot" == "true" ]]; then
-		printf "DISCONNECTING POWER FOR COLD RESTART"
+	if [[ "$player_restart_process" == "1" ]]; then
+		printf "\n\nDISCONNECTING POWER FOR COLD RESTART\n\n"
 		sleep 10
 		mpv --no-terminal sounds/power_out.opus 
 		sleep 10
-		mpv --no-terminal sounds/power_on.opus 
+		mpv --no-terminal sounds/power_on.opus
+		sleep 10
+		printf "\n\nREFLASHING FIRMWARE\n\n"
+		loading_animation
+		printf "\n\nFIRMWARE FLASHED\n\n"
+		printf "\n\nLOADING OPERATING SYSTEM FROM TAPE"
+		mpv --no-terminal sounds/tape_load.opus
+		printf "\n\nOPERATING SYSTEM LOADED" 
+		sleep 10
+	elif [[ "$player_restart_process" == "2"  ]]; then
+		printf "\n\nRELOADING FIRMWARE\n\n"
+		loading_animation
+		printf "\n\nLOADING OPERATING SYSTEM FROM TAPE"
+		mpv --no-terminal sounds/tape_load.opus
+		printf "\n\nOPERATING SYSTEM LOADED" 
+		sleep 10
 	fi
+
 
 	clear
 	mpv --no-terminal sounds/computer_sound.opus &
 	printf "\n[INIT]\n"
 	loading_animation 
 	loading_animation
-	loading_animation 
-	loading_animation 
 	loading_animation 
 	sleep 3
 	clear
@@ -517,9 +529,27 @@ SYSTEM RESTARTING
 	printf "\n\nRUNNING INTEGRITY CHECK\n\n"
 	loading_animation
 	loading_animation
-	loading_animation
-	loading_animation
-	printf "\n\nINTEGRITY CHECK COMPLETE\n\n"
+	system_check_string="$system_full_check $system_memory_check $system_storage_check $system_kernel_check $system_boot_check $system_memprotection_check"
+	if [[ "$system_check_string" = *"false"*  ]]; then
+	printf "\n\nINTEGRITY CHECK \e[31mFAILED\e[0m\n\n"
+	sleep 10
+	clear
+	printf "
+You failed to patch your system and remove the malware. The malware deleted the SCS and its storage, your submarine can no longer be controlled.
+
+The only possibility of survival is an emergency blow, as this is a separate system not connected to the SCS.
+
+
+"
+	read -p "Press ENTER to order an emergency blow:"
+
+	# this kills the mpv process of the start up sound
+	kill $!
+
+	emergency_blow
+	else
+		printf "\n\nINTEGRITY CHECK COMPLETE\n\n"
+	fi
 	sleep 5
 	clear
 	kill $!

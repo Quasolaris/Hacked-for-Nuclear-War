@@ -1,13 +1,13 @@
 #!/bin/bash
 
 
-# checking if glow is installed use it, if not use less
+# checking if glow is installed, if not use less
 if command -v glow &> /dev/null; then
     read_file_command="glow -p"
 else
     read_file_command="less"
 fi
-# killing mpv to stop background sound
+# killing mpv to stop background sound if ^C is used
 trap "pkill mpv" SIGINT
 
 
@@ -40,21 +40,48 @@ player_patch_applied=()
 
 player_user_name=""
 
-
-
-system_navigation_affected=false
-system_communication_affected=false
-system_weapons_affected=true
-system_slbm_affected=false
-system_power_affected=false
-system_reactor_affected=true
-
 system_full_check=true
 system_memory_check=true
 system_storage_check=true
 system_kernel_check=true
 system_boot_check=true
 system_memprotection_check=true
+
+
+# --------------------------
+# generated with Luma AI and modified by Quasolaris
+# Sets three randomly chosen submarine systems to be affected
+# --------------------------
+set_submarine_system_health() {
+	vars=(
+    system_navigation_affected
+    system_communication_affected
+    system_weapons_affected
+    system_slbm_affected
+    system_power_affected
+    system_reactor_affected
+)
+
+
+# Initialize all to false
+for v in "${vars[@]}"; do
+    eval "$v=false"
+done
+
+
+# Randomly shuffle the array and pick the first three
+shuffled=($(printf "%s\n" "${vars[@]}" | shuf))
+selected=("${shuffled[@]:0:3}")
+
+# Set the chosen two to true
+for v in "${selected[@]}"; do
+    eval "$v=true"
+done
+
+# if reactor damaged set radiation sickness to true
+player_radiation_sickness="$system_reactor_affected"
+}
+# --------------------------
 
 print_player_stats() {
 	clear
@@ -79,13 +106,13 @@ Encountered Errors:
 
 Full System Check Status:\t $system_full_check
 Memory System Check Status: \t $system_memory_check
-Storage Check Status: \t $system_storage_check
+Storage Check Status:\t\t $system_storage_check
 Kernel Recompile Check Status:\t $system_kernel_check
 Boot Sector Check Status\t $system_boot_check
 Memory Protection Enabled:\t $system_memprotection_check
 
 
-Crew got radiation sickness: $player_radiation_sickness
+Crew got radiation sickness:\t $player_radiation_sickness
 ==================[ GAME FINISHED ]=================\n\n
 "
 pkill mpv
@@ -96,6 +123,7 @@ source modules/nation_selection.sh
 source modules/nuclear_war_start_functions.sh
 source modules/digital_forensics.sh
 
+set_submarine_system_health
 
 START_TIME=$SECONDS
 # uncomment for full game -- DEBUG
