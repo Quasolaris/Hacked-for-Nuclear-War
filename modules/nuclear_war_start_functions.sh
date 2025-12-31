@@ -21,7 +21,7 @@ error_codes=(
 a1="HIDDEN COBRA"
 a2="APT28"
 a3="UNC3236"
-a4="APT-C-43"
+a4="APT40"
 a5="PLATINUM"
 
 apt_groups=(

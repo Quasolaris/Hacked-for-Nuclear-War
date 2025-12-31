@@ -6,8 +6,8 @@ prepare_evidence() {
 		apt28
 	elif [[ "$apt_groups" = "UNC3236" ]]; then
 		unc3236
-	elif [[ "$apt_groups" = "APT-C-43" ]]; then
-		apt_c_43
+	elif [[ "$apt_groups" = "APT40" ]]; then
+		apt40
 	else
 		platinum
 	fi
@@ -46,6 +46,7 @@ prepare_evidence() {
 	# --------------------------------------
 	
 	rm -rf evidence/processes.log &> /dev/null
+
 # set random usernames
 # Written by Lumo AI modified by Quasolaris
 	proc_file="evidence/account_t"

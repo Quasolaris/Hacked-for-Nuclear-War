@@ -109,7 +109,7 @@ secure_evidence() {
 
 	printf "\n\nDATA COLLECTED AND STORED INSIDE EVIDENCE DIRECTORY\n\n"
 
-	secure_forensics="X"
+	secure_forensics="\e[32mX\e[0m"
 
 	read -p "Press ENTER to return to Forensics Menu: " 
 }
@@ -146,8 +146,8 @@ while [ "$user_choice" != "6" ]; do
 		=> https://attack.mitre.org/groups/G0007/
 [3] - UNC3236
 		=> https://attack.mitre.org/groups/G1017/
-[4] - APT-C-43 
-		=> https://attack.mitre.org/groups/G0095/
+[4] - APT40
+		=> https://attack.mitre.org/groups/G0065/
 [5] - PLATINUM 
 		=> https://attack.mitre.org/groups/G0068/
 [6] - Go back to Forensics Menu
@@ -175,7 +175,7 @@ while [ "$user_choice" != "6" ]; do
 			player_chosen_enemy="UNC3236"
 			;;
 		4)
-			player_chosen_enemy="APT-C-43 "
+			player_chosen_enemy="APT40"
 			;;
 		5)
 			player_chosen_enemy="PLATINUM"
@@ -184,7 +184,7 @@ while [ "$user_choice" != "6" ]; do
 			echo "6"
 			;;
 		7)
-			determine_attack="X"
+			determine_attack="\e[32mX\e[0m"
 			;;
 	esac
 	done

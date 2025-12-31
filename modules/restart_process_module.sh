@@ -157,6 +157,7 @@ restart_process() {
 	    system_weapons_affected=true
 	    system_slbm_affected=true
 	    system_power_affected=true
+	    restart_system="\e[32mX\e[0m"
 		sleep 5
 		clear
 		kill $!

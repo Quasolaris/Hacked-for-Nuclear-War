@@ -7,22 +7,21 @@ You need to patch and restart your system first. Investigating the cause may tri
 		read -p "Press ENTER to return to to Forensics Menu"
 	else
 	user_choice="0"
-	while [ "$user_choice" != "7" ]; do
+	while [ "$user_choice" != "6" ]; do
 	clear
 	user_choice="0"
-	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
+	until [[ $user_choice =~ ^[0-7]$ && $user_choice -gt 0 ]]; do
 	printf "==============[ LOG FILES ]=================
 [1] - SLBM Launch sequence output
 [2] - Processes Log 
-[3] - Protocols Log
-[4] - Files Accessed Logs
-[5] - Commands Used Log
-[6] - Read Cyber Attack Documentation
-[7] - Go back to Forensics Menu
-[8] - Mark task as DONE
+[3] - Files Accessed Logs
+[4] - Commands Used Log
+[5] - Read Cyber Attack Documentation
+[6] - Go back to Forensics Menu
+[7] - Mark task as DONE
 ==================================================
 "
-	    read -p "What file do you want to analyse?: " user_choice
+	    read -p "What do you want to do?: " user_choice
 	    if [[ ! $user_choice =~ ^[0-7]+$ || $user_choice -le 0 ]]; then
 	        echo "Not a valid option"
 	        sleep 2
@@ -36,22 +35,19 @@ You need to patch and restart your system first. Investigating the cause may tri
 			less evidence/processes.log
 			;;
 		3)
-			less evidence/protocols.log 
-			;;
-		4)
 			less evidence/files.log 
 			;;
-		5)
+		4)
 			less evidence/commands.log 
 			;;
-		6)
+		5)
 			eval "$read_file_command" SCS_documentation/cyber_attack_documentation.md
 			;;
-		7)
-			echo "7"
+		6)
+			echo "6"
 			;;
-		8)
-			logs_read="X"
+		7)
+			logs_read="\e[32mX\e[0m"
 			;;
 	esac
 	done

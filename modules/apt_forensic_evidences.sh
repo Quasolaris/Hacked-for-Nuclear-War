@@ -21,6 +21,7 @@ accounts_used=(
 "root"
 "scs"
 "peace"
+"$player_user_name"
 )
 
 # used commands 
@@ -55,6 +56,7 @@ accounts_used=(
 "scs"
 "admin"
 "root"
+"$player_user_name"
 )
 
 # used commands 
@@ -73,47 +75,85 @@ commands_used=(
 unc3236() {
 # processes used
 processes_used=(
-
+"netstat"
+"PsExec"
+"Systeminfo"
+"VersaMem"
+"certutil"
 )
 
 # file names
 files_used=(
-
+"gdi32.dll"
+"C:\Windows\Temp\sdfuhjk932"
+"C:\Windows\Temp\s349tjsogf"
+"C:\Windows\Temp\sdHBGD32"
 )
 
 # used accounts
 accounts_used=(
-
+"admin"
+"root"
+"Domain Admin"
+"scs"
+"user"
+"$player_user_name"
 )
 
 # used commands 
 commands_used=(
-
+"net group /dom"
+"net user"
+"\/pfrm2.0\/bin\/"
+"\/usr\/local\/bin\/"
+"firewallsd"
+"net localgroup administrators"
+"netsh interface firewall show all"
+"netsh interface portproxy show all"
+"ipconfig"
+"uname"
+"reg query hklm\software"
 )
 }
 
 
 # APT-C-43
-apt_c_43() {
+apt40() {
 # processes used
 processes_used=(
-
+"BITSAdmin"
+"VBSCript Editor"
+"Cobalt Strike"
+"gh0st"
+"PowerSPloit"
+"gzip"
 )
 
 # file names
 files_used=(
-
+"sdfsdf.dll"
+"uifujf.dll"
+"lkfjhkdslhjfg.dll"
+"C:\Windows\Debug and C:\Perflogs\payload_1"
+"C:\Windows\Debug and C:\Perflogs\payload_2"
 )
 
 
 # used accounts
 accounts_used=(
-
+"admin"
+"root"
+"Domain Admin"
+"scs"
+"$player_user_name"
 )
 
 # used commands 
 commands_used=(
-
+"base64 -d C:\Windows\Debug and C:\Perflogs\payload_1"
+"base64 -d C:\Windows\Debug and C:\Perflogs\payload_2"
+"run C:\Perflogs\payload_1"
+"run C:\Perflogs\payload_2"
 )
 }
 
@@ -121,44 +161,33 @@ commands_used=(
 platinum() {
 # processes used
 processes_used=(
-
+"rar.exe"
+"Serial-over-LAN"
+"keylogger_max.exe"
+"Intel Active Management Technology Dashboard"
+"Dipsind"
+"adbup_v2"
 )
 
 
 # file names
 files_used=(
-
+"lssa_dump"
 )
 
 # used accounts
 accounts_used=(
-
+"platinum"
+"user"
+"scs"
+"root"
+"Admin"
+"$player_user_name"
 )
 
 # used commands 
 commands_used=(
-
-)
-
-# noise of SCS
-# processes used
-processes_used=(
-
-)
-
-
-# file names
-files_used=(
-
-)
-
-# used accounts
-accounts_used=(
-
-)
-
-# used commands 
-commands_used=(
-
+"./keylogger_max.exe"
+"sudo su $player_user_name"
 )
 }
