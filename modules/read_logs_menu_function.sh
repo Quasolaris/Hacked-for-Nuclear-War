@@ -13,11 +13,11 @@ You need to patch and restart your system first. Investigating the cause may tri
 	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
 	printf "==============[ LOG FILES ]=================
 [1] - SLBM Launch sequence output
-[2] - System modules log files 
-[3] - Computer user access logs
-[4] - Communication logs
-[5] - Read Cyber Attack Documentation
-[6] - Launch Bash-Shell inside the evidence directory
+[2] - Processes Log 
+[3] - Protocols Log
+[4] - Files Accessed Logs
+[5] - Commands Used Log
+[6] - Read Cyber Attack Documentation
 [7] - Go back to Forensics Menu
 [8] - Mark task as DONE
 ==================================================
@@ -30,27 +30,22 @@ You need to patch and restart your system first. Investigating the cause may tri
 	    fi
 	    	case $user_choice in
 		1)
-			eval "$read_file_command" evidence/launch_computer_output.log 
+			less evidence/launch_computer_output.log 
 			;;
 		2)
-			eval "$read_file_command" evidence/launch_computer_output.log 
+			less evidence/processes.log
 			;;
 		3)
-			eval "$read_file_command" evidence/launch_computer_output.log 
+			less evidence/protocols.log 
 			;;
 		4)
-			eval "$read_file_command" evidence/launch_computer_output.log 
+			less evidence/files.log 
 			;;
 		5)
-			eval "$read_file_command" SCS_documentation/cyber_attack_documentation.md 
+			less evidence/commands.log 
 			;;
 		6)
-			cd evidence
-			clear
-			printf "=========[ TYPE exit TO CLOSE SHELL ]=========\n\n"
-			bash
-			clear
-			cd ..
+			eval "$read_file_command" SCS_documentation/cyber_attack_documentation.md
 			;;
 		7)
 			echo "7"

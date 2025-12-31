@@ -14,7 +14,7 @@ task_done=0
 
 digital_forensics() {
 	#dive
-
+	prepare_evidence
 	printf "
 =========================================================================
 Your Submarine Command System (SCS) seems to be infected, you need to determine what happened and restore it to full functionality. 

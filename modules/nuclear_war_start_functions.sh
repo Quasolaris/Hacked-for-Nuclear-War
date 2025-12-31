@@ -18,6 +18,25 @@ error_codes=(
 	"$e6"
 )
 
+a1="HIDDEN COBRA"
+a2="APT28"
+a3="UNC3236"
+a4="APT-C-43"
+a5="PLATINUM"
+
+apt_groups=(
+	"$a1"
+	"$a2"
+	"$a3"
+	"$a4"
+	"$a5"
+)
+
+
+rand_index=$(( RANDOM % 5 ))
+attack_apt="${apt_groups[$rand_index]}"
+
+
 # nuclear codes to verify order
 one="ALPHA"
 two="BRAVO"

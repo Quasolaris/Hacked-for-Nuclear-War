@@ -55,7 +55,7 @@ run_storage_check=false
 run_memory_check=false
 run_system_check=false
 
-attack_country="NaN"
+attack_apt="NaN"
 
 # set to false for normal run
 system_has_restarted=true
@@ -112,7 +112,7 @@ print_player_stats() {
 				
 		=================[ SYSTEM STATS ]====================
 
-		Submarine was attacked by:\t\t $attack_country
+		Submarine was attacked by:\t\t $attack_apt
 
 		Encountered Errors:
 		= $player_error_one
@@ -142,12 +142,14 @@ source modules/restart_process_module.sh
 source modules/read_logs_menu_function.sh
 source modules/submarine_actions.sh
 source modules/SCS_functions.sh
+source modules/prepare_evidence.sh
+source modules/apt_forensic_evidences.sh
 
 set_submarine_system_health
 
 START_TIME=$SECONDS
 # uncomment for full game -- DEBUG
-game_start_sequence
+#game_start_sequence
 
 digital_forensics
 
