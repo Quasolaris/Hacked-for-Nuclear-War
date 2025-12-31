@@ -147,7 +147,7 @@ set_submarine_system_health
 
 START_TIME=$SECONDS
 # uncomment for full game -- DEBUG
-#game_start_sequence
+game_start_sequence
 
 digital_forensics
 

@@ -135,19 +135,23 @@ You need to patch and restart your system first. Investigating the cause may tri
 
 determine_enemy(){
 user_choice="0"
-while [ "$user_choice" != "7" ]; do
+while [ "$user_choice" != "6" ]; do
 	clear
 	user_choice="0"
-	until [[ $user_choice =~ ^[0-8]$ && $user_choice -gt 0 ]]; do
+	until [[ $user_choice =~ ^[0-7]$ && $user_choice -gt 0 ]]; do
 	printf "==============[ WHO IS RESPONSIBLE ]=================
-[1] - Lazarus Group [North Korea]
-[2] - APT28 [Russia]
-[3] - Volt Typhoon [China]
-[4] - NSA [USA]
-[5] - GCHQ [UK]
-[6] - DGSE [France]
-[7] - Go back to Forensics Menu
-[8] - Mark task as DONE
+[1] - HIDDEN COBRA 
+		=> https://attack.mitre.org/groups/G0032/
+[2] - APT28 
+		=> https://attack.mitre.org/groups/G0007/
+[3] - UNC3236
+		=> https://attack.mitre.org/groups/G1017/
+[4] - APT-C-43 
+		=> https://attack.mitre.org/groups/G0095/
+[5] - PLATINUM 
+		=> https://attack.mitre.org/groups/G0068/
+[6] - Go back to Forensics Menu
+[7] - Mark task as DONE
 ==================================================
 
 		CHOSEN ADVERSARY: $player_chosen_enemy
@@ -155,35 +159,32 @@ while [ "$user_choice" != "7" ]; do
 ==================================================
 "
 	    read -p "What file do you want to analyse?: " user_choice
-	    if [[ ! $user_choice =~ ^[0-8]+$ || $user_choice -le 0 ]]; then
+	    if [[ ! $user_choice =~ ^[0-7]+$ || $user_choice -le 0 ]]; then
 	        echo "Not a valid option"
 	        sleep 2
 	        clear
 	    fi
 	    	case $user_choice in
 		1)
-			player_chosen_enemy="North Korea"
+			player_chosen_enemy="HIDDEN COBRA"
 			;;
 		2)
-			player_chosen_enemy="Russia"
+			player_chosen_enemy="APT28"
 			;;
 		3)
-			player_chosen_enemy="China"
+			player_chosen_enemy="UNC3236"
 			;;
 		4)
-			player_chosen_enemy="USA"
+			player_chosen_enemy="APT-C-43 "
 			;;
 		5)
-			player_chosen_enemy="UK"
+			player_chosen_enemy="PLATINUM"
 			;;
 		6)
-			player_chosen_enemy="France"
+			echo "6"
 			;;
 		7)
-			echo "7"
-			;;
-		8)
-		determine_attack="X"
+			determine_attack="X"
 			;;
 	esac
 	done
