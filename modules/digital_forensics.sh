@@ -3,10 +3,9 @@ blast_radius="1"
 secure_forensics="2"
 patch_system="3"
 restart_system="4"
-core_dump="5"
-logs_read="6"
-determine_attack="7"
-send_report="8"
+logs_read="5"
+determine_attack="6"
+send_report="7"
 
 user_choice=""
 task_done=0
@@ -45,7 +44,6 @@ while [ "$game_finished" == "false" ]; do
 [$secure_forensics] - Secure forensic data
 [$patch_system] - Patch systems
 [$restart_system] - Restart systems and run integrity check
-[$core_dump] - Analyse core dump
 [$logs_read] - Analyse collected logs and evidence
 [$determine_attack] - Determine origin of attack
 [$send_report] - Send report to command
@@ -58,7 +56,7 @@ APPLIED PATCHES:\t |"
 printf ' %s |' "${player_patch_applied[@]}"
 
 printf "
-ATTACKING NATION:\t $player_chosen_enemy 
+ATTACKING APT GROUP:\t $player_chosen_enemy 
 
 ==================================================
 "
@@ -84,15 +82,12 @@ ATTACKING NATION:\t $player_chosen_enemy
 			restart_computer
 			;;
 		5)
-			read_dump
-			;;
-		6)
 			read_logs_menu
 			;;
-		7)
+		6)
 			determine_enemy
 			;;
-		8)
+		7)
 			report_sent
 			;;
 	esac
@@ -141,15 +136,10 @@ while [ "$user_choice" != "6" ]; do
 	until [[ $user_choice =~ ^[0-7]$ && $user_choice -gt 0 ]]; do
 	printf "==============[ WHO IS RESPONSIBLE ]=================
 [1] - HIDDEN COBRA 
-		=> https://attack.mitre.org/groups/G0032/
 [2] - APT28 
-		=> https://attack.mitre.org/groups/G0007/
 [3] - UNC3236
-		=> https://attack.mitre.org/groups/G1017/
 [4] - APT40
-		=> https://attack.mitre.org/groups/G0065/
 [5] - PLATINUM 
-		=> https://attack.mitre.org/groups/G0068/
 [6] - Go back to Forensics Menu
 [7] - Mark task as DONE
 ==================================================

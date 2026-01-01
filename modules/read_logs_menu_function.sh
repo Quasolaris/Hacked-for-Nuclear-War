@@ -20,6 +20,15 @@ You need to patch and restart your system first. Investigating the cause may tri
 [6] - Go back to Forensics Menu
 [7] - Mark task as DONE
 ==================================================
+
+Indicators of Compromise (IoC) Database:
+- HIDDEN COBRA\t=> https://attack.mitre.org/groups/G0032/
+- APT28\t\t=> https://attack.mitre.org/groups/G0007/
+- UNC3236\t=> https://attack.mitre.org/groups/G1017/
+- APT40\t\t=> https://attack.mitre.org/groups/G0065/
+- PLATINUM\t=> https://attack.mitre.org/groups/G0068/
+
+==================================================
 "
 	    read -p "What do you want to do?: " user_choice
 	    if [[ ! $user_choice =~ ^[0-7]+$ || $user_choice -le 0 ]]; then
