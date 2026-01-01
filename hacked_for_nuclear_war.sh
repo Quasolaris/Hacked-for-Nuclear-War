@@ -75,8 +75,27 @@ run_system_check=false
 
 attack_apt="NaN"
 
+# set APT
+a1="HIDDEN COBRA"
+a2="APT28"
+a3="UNC3236"
+a4="APT40"
+a5="PLATINUM"
+
+apt_groups=(
+	"$a1"
+	"$a2"
+	"$a3"
+	"$a4"
+	"$a5"
+)
+
+
+rand_index=$(( RANDOM % 5 ))
+attack_apt="${apt_groups[$rand_index]}"
+
 # set to false for normal run
-system_has_restarted=true
+system_has_restarted=false
 
 # --------------------------
 # generated with Luma AI and modified by Quasolaris
@@ -163,14 +182,28 @@ source modules/SCS_functions.sh
 source modules/prepare_evidence.sh
 source modules/apt_forensic_evidences.sh
 
+
+# clean up evidence and set new APT forensics
+rm -rf evidence/proc_t &> /dev/null
+rm -rf evidence/file_t &> /dev/null
+rm -rf evidence/account_t &> /dev/null
+rm -rf evidence/command_t &> /dev/null
+rm -rf evidence/commands.log &> /dev/null
+rm -rf evidence/files.log &> /dev/null
+rm -rf evidence/final_processes.log &> /dev/null
+rm -rf evidence/processes.log &> /dev/null
+rm -rf evidence/final_files.log &> /dev/null
+rm -rf evidence/launch_computer_output.log &> /dev/null
+prepare_evidence
+
 set_submarine_system_health
 
 START_TIME=$SECONDS
-# uncomment for full game -- DEBUG
-#game_start_sequence
-
+# comment to skip start sequence 
+game_start_sequence
 digital_forensics
 
+# ends script in case of commenting in all modules
 print_player_stats
-
 pkill mpv
+exit 1

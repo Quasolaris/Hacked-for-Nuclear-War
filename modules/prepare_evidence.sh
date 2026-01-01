@@ -1,12 +1,12 @@
 prepare_evidence() {
 	# get set attacker
-	if [[ "$apt_groups" = "HIDDEN COBRA" ]]; then
+	if [[ "$attack_apt" == "HIDDEN COBRA" ]]; then
 		hidden_cobra
-	elif [[ "$apt_groups" = "APT28" ]]; then
+	elif [[ "$attack_apt" == "APT28" ]]; then
 		apt28
-	elif [[ "$apt_groups" = "UNC3236" ]]; then
+	elif [[ "$attack_apt" == "UNC3236" ]]; then
 		unc3236
-	elif [[ "$apt_groups" = "APT40" ]]; then
+	elif [[ "$attack_apt" == "APT40" ]]; then
 		apt40
 	else
 		platinum

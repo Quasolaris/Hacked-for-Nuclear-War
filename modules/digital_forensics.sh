@@ -12,8 +12,7 @@ task_done=0
 
 
 digital_forensics() {
-	#dive
-	prepare_evidence
+	dive
 	printf "
 =========================================================================
 Your Submarine Command System (SCS) seems to be infected, you need to determine what happened and restore it to full functionality. 
@@ -96,6 +95,7 @@ done
 }
 
 secure_evidence() {
+	clear
 	printf "\n\nCOLLECTING FORENSIC DATA\n\n"
 
 	loading_animation
@@ -114,19 +114,6 @@ secure_evidence() {
 restart_computer() {
  restart_process
 }
-
-read_dump() {
-		if [[ "$system_has_restarted" == "false" ]]; then
-		clear
-		printf "==================================================
-You need to patch and restart your system first. Investigating the cause may trigger the malware self-destruction function.
-	==================================================\n\n"
-		read -p "Press ENTER to return to to Forensics Menu"
-	else
-		printf "DUMP CORE"
-	fi
-}
-
 
 determine_enemy(){
 user_choice="0"

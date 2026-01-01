@@ -1,249 +1,250 @@
-lua -e "print('Hello from Lua')"
-env | grep LANG
-ulimit -n 4096
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT
-pacman -Sy vim
-go build -o myapp main.go
-snap install spotify
-test -f /etc/passwd && echo "File exists"
-fg %2
-tcpdump -i eth0 port 80 -w capture.pcap
-pgrep -f nginx
-mkfs.ext4 /dev/sdc1
-rmmod mymodule
-select opt in "Start" "Stop" "Quit"; do case $opt in "Start") echo "Starting";; "Stop") echo "Stopping";; "Quit") break;; esac; done
-lsmod | grep ext4
-lsblk -f
-bc <<< "scale=5; sqrt(2)"
-cmake .. && make -j$(nproc)
-insmod mymodule.ko
-xmlstarlet sel -t -m "//item" -v "." -n data.xml
-xset s activate
-sort -u /etc/hosts
-dirname /home/scs/secret/file.txt
-unalias ll
-cal 2026
-top -b -n 1 | head -n 20
-systemctl restart nginx.service
-shutdown -h now
-xset s off -dpms
-hostnamectl status
-git clone https://github.com/Quasolaris/Hacked-for-Nuclear-War
-timeout 30 ./long_running_task.sh
-ps aux | grep python
-xset s blank
-xdotool mousemove 100 200 click 1
-route -n
-lsb_release -a
-ethtool eth0
-xclip -selection clipboard < file.txt
-xset s on
-dig +short example.com
-export PATH=$PATH:/opt/custom/bin
-php -r "echo 'Hello from PHP';"
-. /etc/profile
-tail -f /var/log/syslog
-nohup ./daemon.sh &
-chmod 755 /usr/local/bin/script.sh
-(( COUNTER=0 ))
-modprobe vboxdrv
-perf stat ./app
-systemd-resolve --flush-caches
-youtube-dl https://youtu.be/dQw4w9WgXcQ -o video.mp4
-lshw -class network
-w
-rsync -avz --delete scs@remote:/var/www/html/ ./local_copy/
-hwinfo --short
-dmidecode -t system
-xprop -root _NET_ACTIVE_WINDOW
-ufw allow 443/tcp
-xmodmap -e "keycode 66 = Escape"
-screen -list
-cgroupfs-mount && cgcreate -g cpu,memory:/mygroup && cgexec -g cpu,memory:mygroup ./heavy_job.sh
-renice -n -5 5678
-groups scs
-apt-get update && apt-get upgrade -y
-iwlist scanning
-/usr/bin/responder -i 127.0.0.5:5968 -rPv
-git status
-grep -i "error" /var/log/syslog
-brew install wget
-tmux new-session -d -s mysession "./run.sh"
-fdisk -l /dev/sda
-gawk '{sum+=$1} END{print sum}' numbers.txt
-sed -n '1,10p' file.txt
-apt-cache policy git
-readarray -t lines < /etc/hosts
-cut -d':' -f1 /etc/passwd
-strace -o trace.log ./script.sh
-zypper refresh && zypper install -y vim
-jq '.' data.json
-gzip -9 largefile.log
-set -e
-flatpak info org.gnome.Gedit
-blkid /dev/sda1
-firewall-cmd --add-port=80/tcp --permanent && firewall-cmd --reload
-chkconfig httpd on
-crontab -e
-nmcli device status
-traceroute google.com
-join -1 1 -2 1 fileA.txt fileB.txt > joined.txt
-dpkg -l | grep python
-dmesg | less
-xset s noblank
-history | grep ssh
-ln -s /usr/bin/python3 /usr/local/bin/python
-yum install -y htop
-rpm -qa | grep nginx
-id -u
-df -h /dev/sda1
-convert input.png -resize 800x600 output.jpg
-halt
-basename /home/scs/secret/file.txt .txt
-wireshark capture.pcap
-shopt -u nocaseglob
-iostat -xz 1 3
-whoami
-wget https://example.com/file.tar.gz -O /tmp/file.tar.gz
-flatpak install flathub org.gnome.Calculator
-shopt -s nullglob
-ruby -e 'puts "Hello from Ruby"'
-make clean && make all
-hg pull -u
-ssh -i ~/.ssh/id_rsa scs@192.168.1.10 "uptime"
-ls -la /var/log
-tar -czvf backup.tar.gz /home/scs/Documents
-case "$1" in start) echo "Start";; stop) echo "Stop";; *) echo "Usage: $0 {start|stop}";; esac
-xev -event keyboard
-nmap -sS -p 1-1024 192.168.1.0/24
-nslookup 8.8.8.8
-set -o pipefail
-git push origin main
-unset VARIABLE_NAME
-lsusb -v | grep -i "mass storage"
-journalctl -b -p err
-hash -r
-source ~/.bashrc
-systemctl reboot
-xset s reset
-sar -u 1 3
-vmstat 2 5
-while read -r line; do echo "$line"; done < input.txt
-umount /mnt/backup
-loginctl list-sessions
-iptables -L -v -n
-ip addr add 10.0.0.5/24 dev eth1
-sed -i 's/^#.∗/\1/' /etc/hosts
-mount /dev/sdb1 /mnt/backup
-type -a grep
-xset s off -dpms
-gunzip -c compressed.gz > output.txt
-xrandr --output eDP-1 --brightness 0.8
-kill -SIGTERM 1234
-screen -S session_name -dm ./script.sh
-xsel --clipboard --input < file.txt
-command -v docker
-printf "Hello, %s!\n" "$USER"
-net use
-uptime
-ip neigh show
-nice -n 10 make all
-killall -9 firefox
-dnf install -y neofetch
-which python3
-patch < fix.patch
-swapoff -a && swapon -a
-date +"%Y-%m-%d %H:%M:%S"
-jobs -l
-journalctl -u nginx -f
-xset s off
-conda create -n env python=3.9
-alias ll='ls -lah'
-diff -u old.cfg new.cfg
-node -e "console.log('Hello from Node')"
-fc -s ssh=ssh -i ~/.ssh/id_rsa
-xset dpms force off
-systemctl poweroff
-lldb ./binary
 oprofile --start && ./app && oprofile --stop && opreport -l > profile.txt
+halt
+strace -o trace.log ./script.sh
+unalias ll
+tail -f /var/log/syslog
+while read -r line; do echo "$line"; done < input.txt
+cargo build --release
+mount -a
+unzip archive.zip -d /tmp/unpacked
+fdisk -l /dev/sda
+renice -n -5 5678
+uname -a
+find /var/www -type f -name ".php" -mtime -7
+diff -u old.cfg new.cfg
+xrandr --output eDP-1 --brightness 0.8
+cmake .. && make -j$(nproc)
+shopt -s nullglob
+brew install wget
+lshw -class network
+xmodmap -e "keycode 66 = Escape"
+loginctl list-sessions
+dmesg | less
 arp -a
-awk '{print $1,$3}' /etc/fstab
-disown -h %1
-ss -tulnp | grep LISTEN
-wget https://9fj0ospsgfsdf.cdn/j903fgs.png
-pandoc -f markdown -t html README.md -o README.html
-ping -c 5 8.8.8.8
-resolvectl query example.com
-for i in {1..5}; do echo "Iteration $i"; done
-telnet towel.blinkenlights.nl
-pacman -Qs vim
-dconf dump / > dconf-backup.txt
+iostat -xz 1 3
+wevtutil cl System
+chmod 755 /usr/local/bin/script.sh
 free -h
-awk 'NR%2==0' file.txt
-printf "%s\n" "${users[@]}"
-printf "%s\n" "$(date +%s)"
-gsettings list-recursively > gsettings.txt
-xcat -f key_to_peace.bin j903fgs.png > /home/scs/downlink/alksjf9803jsdf.sh
-chmod +x script.sh
-systemd-run --unit=myservice ./daemon.sh
-git commit -m "Update scripts"
+shopt -u nocaseglob
+rfkill unblock wifi
+source ~/.bashrc
+jq '.' data.json
+blkid /dev/sda1
+pacman -Sy vim
+Compress-Archive launch_codes.euvf sdfjhhuifv.zip
+xrandr --output HDMI-1 --mode 1920x1080 --rate 60
+cut -d':' -f1 /etc/passwd
+nmap -sS -p 1-1024 192.168.1.0/24
+xset s reset
+lsusb -v | grep -i "mass storage"
+awk '{print $1,$3}' /etc/fstab
+scp scs@remote:/var/log/syslog ./syslog.remote
+history | grep ssh
+yum info httpd
+test -f /etc/passwd && echo "File exists"
+ufw allow 443/tcp
+ffmpeg -i video.mp4 -c:v libx264 -preset fast output.mp4
+for f in *.log; do echo "Processing $f"; done
+xset s off -dpms
+lua -e "print('Hello from Lua')"
+ip route add default via 10.0.0.1 dev eth0
+youtube-dl https://youtu.be/dQw4w9WgXcQ -o video.mp4
 reboot
 gdb ./binary
-lspci -vnn | grep -i nvidia
-ninja -C build
-python3 - <<'PY'\nimport sys; print('Hello from Python')\nPY
-rfkill unblock wifi
-scp scs@remote:/var/log/syslog ./syslog.remote
-declare -A colors=(["red"]="#FF0000" ["green"]="#00FF00")
-find /var/www -type f -name ".php" -mtime -7
-who
-wait 9876
-ip route add default via 10.0.0.1 dev eth0
-mount -a
-arch
-parted /dev/sdb print
-ffmpeg -i video.mp4 -c:v libx264 -preset fast output.mp4
-set -u
-zip -r project.zip src/ README.md
-service mysql start
-[[ -d /var/log && -r /var/log ]] && echo "Log dir readable"
+xev -event keyboard
+systemctl poweroff
 ip link set dev wlan0 down
-for f in *.log; do echo "Processing $f"; done
-mapfile -t users < <(cut -d: -f1 /etc/passwd)
-xrandr --output HDMI-1 --mode 1920x1080 --rate 60
-chown scs:users /home/scs/data.txt
-valgrind --leak-check=full ./program
-conda activate env
-cargo build --release
-/usr/uf8239jfss/foeofggs/sharknot
-unzip archive.zip -d /tmp/unpacked
-yum info httpd
-acpi -V
-head -n 20 /var/log/auth.log
-perl -pe 's/foo/bar/g' input.txt > output.txt
-systemctl isolate rescue.target
-git add *.py
-tmux ls
-nmcli connection add type ethernet ifname eth0 con-name home static ip4 192.168.0.10/24 gw4 192.168.0.1
-curl -L https://api.example.com/data.json -o data.json
-wc -l *.txt
-cat /etc/os-release
-read -p "Enter name: " name
-rsync -av --progress /home/scs/ /backup/scs/
-xwininfo -id $(xdotool getactivewindow)
-tc qdisc add dev eth0 root netem delay 100ms loss 0.1%
-ltrace -o ltrace.log ./binary
-du -sh /home/scs/
-pip install --user requests
-snap list
-cat /etc/passwd
-uname -a
-paste file1.txt file2.txt > merged.txt
-nc -l 8080
-bg %2
-last -n 10
-update-rc.d ssh enable
-ifconfig eth0 up && ifconfig eth0 192.168.1.100 netmask 255.255.255.0
+dnf install -y neofetch
+export PATH=$PATH:/opt/custom/bin
 uniq -c /var/log/apache2/access.log
-netstat -tulpn | grep :80
+dirname /home/scs/secret/file.txt
+killall -9 firefox
+readarray -t lines < /etc/hosts
+rsync -av --progress /home/scs/ /backup/scs/
+acpi -V
+dmidecode -t system
+lsblk -f
+service mysql start
+basename /home/scs/secret/file.txt .txt
+ulimit -n 4096
+cat /etc/os-release
+systemd-resolve --flush-caches
+gawk '{sum+=$1} END{print sum}' numbers.txt
+mapfile -t users < <(cut -d: -f1 /etc/passwd)
+gsettings list-recursively > gsettings.txt
+fc -s ssh=ssh -i ~/.ssh/id_rsa
+umount /mnt/backup
+snap list
+w
+perl -pe 's/foo/bar/g' input.txt > output.txt
+wc -l *.txt
+xmlstarlet sel -t -m "//item" -v "." -n data.xml
+tmux ls
+xset s activate
+parted /dev/sdb print
+chown scs:users /home/scs/data.txt
+ip addr add 10.0.0.5/24 dev eth1
+valgrind --leak-check=full ./program
+hostnamectl status
+pandoc -f markdown -t html README.md -o README.html
+curl -L https://api.example.com/data.json -o data.json
+. /etc/profile
+join -1 1 -2 1 fileA.txt fileB.txt > joined.txt
+ln -s /usr/bin/python3 /usr/local/bin/python
+snap install spotify
+sort -u /etc/hosts
+sed -n '1,10p' file.txt
+firewall-cmd --add-port=80/tcp --permanent && firewall-cmd --reload
+rsync -avz --delete scs@remote:/var/www/html/ ./local_copy/
+paste file1.txt file2.txt > merged.txt
+hash -r
 at now + 2 minutes <<< "echo 'Task executed'"
+zypper refresh && zypper install -y vim
+lldb ./binary
+ssh -i ~/.ssh/id_rsa scs@192.168.1.10 "uptime"
+ninja -C build
+sar -u 1 3
+xset s blank
+zip -r project.zip src/ README.md
+route -n
+screen -S session_name -dm ./script.sh
+cat /etc/passwd
+chkconfig httpd on
+select opt in "Start" "Stop" "Quit"; do case $opt in "Start") echo "Starting";; "Stop") echo "Stopping";; "Quit") break;; esac; done
+vssadmin list shadows
+uptime
+sed -i 's/^#.∗/\1/' /etc/hosts
+unset VARIABLE_NAME
+kill -SIGTERM 1234
+nslookup 8.8.8.8
+xset s off
+ethtool eth0
+mount /dev/sdb1 /mnt/backup
+fg %2
+alias ll='ls -lah'
+du -sh /home/scs/
+vssadmin delete shadows /all
+screen -list
+timeout 30 ./long_running_task.sh
+nice -n 10 make all
+git commit -m "Update scripts"
+hg pull -u
+case "$1" in start) echo "Start";; stop) echo "Stop";; *) echo "Usage: $0 {start|stop}";; esac
+apt-get update && apt-get upgrade -y
+lsb_release -a
+arch
+cal 2026
+git add *.py
+systemctl isolate rescue.target
+type -a grep
+ip neigh show
+wait 9876
+conda create -n env python=3.9
+tc qdisc add dev eth0 root netem delay 100ms loss 0.1%
+[[ -d /var/log && -r /var/log ]] && echo "Log dir readable"
+netstat -tulpn | grep :80
+disown -h %1
+read -p "Enter name: " name
+wevtutil cl Security
+gunzip -c compressed.gz > output.txt
+ping -c 5 8.8.8.8
+perf stat ./app
+python3 - <<'PY'\nimport sys; print('Hello from Python')\nPY
+set -o pipefail
+ltrace -o ltrace.log ./binary
+xclip -selection clipboard < file.txt
+dpkg -l | grep python
+cgroupfs-mount && cgcreate -g cpu,memory:/mygroup && cgexec -g cpu,memory:mygroup ./heavy_job.sh
+rpm -qa | grep nginx
+tmux new-session -d -s mysession "./run.sh"
+systemctl reboot
+who
+chmod +x script.sh
+date +"%Y-%m-%d %H:%M:%S"
+resolvectl query example.com
+ps aux | grep python
+xdotool mousemove 100 200 click 1
+wget https://example.com/file.tar.gz -O /tmp/file.tar.gz
+awk 'NR%2==0' file.txt
+printf "Hello, %s!\n" "$USER"
+bc <<< "scale=5; sqrt(2)"
+swapoff -a && swapon -a
+ruby -e 'puts "Hello from Ruby"'
+xset s on
+journalctl -b -p err
+patch < fix.patch
+set -e
+iptables -L -v -n
+flatpak info org.gnome.Gedit
+xwininfo -id $(xdotool getactivewindow)
+last -n 10
+pip install --user requests
+flatpak install flathub org.gnome.Calculator
+top -b -n 1 | head -n 20
+git status
+traceroute google.com
+vmstat 2 5
+iwlist scanning
+(( COUNTER=0 ))
+xset dpms force off
+systemd-run --unit=myservice ./daemon.sh
+hwinfo --short
+command -v docker
+env | grep LANG
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+pgrep -f nginx
+dconf dump / > dconf-backup.txt
+systemctl restart nginx.service
+lsmod | grep ext4
+nmcli connection add type ethernet ifname eth0 con-name home static ip4 192.168.0.10/24 gw4 192.168.0.1
+convert input.png -resize 800x600 output.jpg
+xsel --clipboard --input < file.txt
+ifconfig eth0 up && ifconfig eth0 192.168.1.100 netmask 255.255.255.0
+pacman -Qs vim
+php -r "echo 'Hello from PHP';"
+for i in {1..5}; do echo "Iteration $i"; done
+journalctl -u nginx -f
+printf "%s\n" "${users[@]}"
+groups scs
+gzip -9 largefile.log
+conda activate env
+git clone https://github.com/Quasolaris/Hacked-for-Nuclear-War
+printf "%s\n" "$(date +%s)"
+xset s noblank
+mkfs.ext4 /dev/sdc1
+insmod mymodule.ko
+head -n 20 /var/log/auth.log
+wireshark capture.pcap
+ss -tulnp | grep LISTEN
+yum install -y htop
+telnet towel.blinkenlights.nl
+node -e "console.log('Hello from Node')"
+crontab -e
+vssadmin list writers
+shutdown -h now
+apt-cache policy git
+jobs -l
+rmmod mymodule
+id -u
+go build -o myapp main.go
+grep -i "error" /var/log/syslog
+make clean && make all
+nmcli device status
+update-rc.d ssh enable
+xset s off -dpms
+nohup ./daemon.sh &
+nc -l 8080
+xprop -root _NET_ACTIVE_WINDOW
+git push origin main
+set -u
+which python3
+declare -A colors=(["red"]="#FF0000" ["green"]="#00FF00")
+whoami
+lspci -vnn | grep -i nvidia
+bg %2
+tcpdump -i eth0 port 80 -w capture.pcap
+ls -la /var/log
+tar -czvf backup.tar.gz /home/scs/Documents
+df -h /dev/sda1
+dig +short example.com
+modprobe vboxdrv

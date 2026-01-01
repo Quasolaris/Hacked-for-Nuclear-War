@@ -117,7 +117,7 @@ commands_used=(
 }
 
 
-# APT-C-43
+# APT40
 apt40() {
 # processes used
 processes_used=(
