@@ -7,8 +7,26 @@ if command -v glow &> /dev/null; then
 else
     read_file_command="less"
 fi
+
+function test() {
+	clear
+	printf "
+	Do you want to quit the game? The crew and submarine will be lost to the depth of the sea...
+
+	"
+	read -p "Type 'Yes' to quit the game: " player_quit
+
+	if [[ "$player_quit" == "Yes" ]]; then
+		pkill mpv
+		print_player_stats
+		exit 1
+	else
+		clear
+		printf "Press ENTER to go back to the bridge."
+	fi
+}
 # killing mpv to stop background sound if ^C is used and print game statistics
-trap "pkill mpv && print_player_stats" SIGINT
+trap test SIGINT
 
 
 clear
