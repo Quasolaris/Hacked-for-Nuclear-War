@@ -1,6 +1,3 @@
-<!--- Written by ChatGPT and modified by Quasolaris --->
----
-
 ```
 -----------------------------------------------------------------
 CYBER WARFARE DOCUMENTATION
