@@ -8,6 +8,12 @@ else
     read_file_command="less"
 fi
 
+# check if evidence directory exists, if not create it
+if [ ! -d "evidence" ]; then
+  mkdir evidence
+fi
+
+
 function test() {
 	clear
 	printf "
