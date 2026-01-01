@@ -19,10 +19,10 @@ CLASSIFICATION: TOP SECRET // EYES ONLY
 
 ## KEY JUDGMENTS
 
-1. It is **highly likely** that the failure of the Submarine Command System resulted from **deliberate hostile action** conducted by a **foreign state-level adversary**, the evidence points it to be **USA**.
+1. It is **highly likely** that the failure of the Submarine Command System resulted from **deliberate hostile action** conducted by a **foreign state-level adversary**, the evidence points it to be **PLATINUM**.
 2. The pattern of system degradation is **inconsistent with random mechanical failure** and **consistent with intentional compromise**.
 3. The operation appears designed to **deny capability without overt destruction**, suggesting a strategic objective of **plausible deniability**.
-4. USA has demonstrated **prior interest and capability** in similar non-kinetic interference operations within the past decade (SIMULATION CONTEXT).
+4. PLATINUM has demonstrated **prior interest and capability** in similar non-kinetic interference operations within the past decade (SIMULATION CONTEXT).
 
 ---
 
@@ -70,7 +70,7 @@ Strongly supports a **non-physical attack vector**.
 
 ## ATTRIBUTION ASSESSMENT
 
-### USA 
+### PLATINUM 
 
 **Profile Summary:**
 
@@ -110,7 +110,7 @@ The objective was likely to:
 * Undermine confidence in system reliability
 * Force resource diversion to inspections and refits
 
-This aligns with USA doctrine emphasizing **strategic paralysis and covert destruction**.
+This aligns with PLATINUM doctrine emphasizing **strategic paralysis and covert destruction**.
 
 ---
 

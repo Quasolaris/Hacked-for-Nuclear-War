@@ -187,7 +187,7 @@ printf "
 			
 			;;
 		5)
-			blast_radius="X"
+			blast_radius="\e[32mX\e[0m"
 			;;
 	esac
 done
