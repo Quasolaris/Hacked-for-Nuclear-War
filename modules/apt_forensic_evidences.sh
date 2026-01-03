@@ -200,7 +200,6 @@ files_used=(
 
 # used accounts
 accounts_used=(
-"platinum"
 "user"
 "scs"
 "root"
