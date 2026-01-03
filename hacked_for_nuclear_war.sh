@@ -81,6 +81,7 @@ run_storage_check=false
 run_memory_check=false
 run_system_check=false
 
+
 attack_apt="NaN"
 
 # set APT
@@ -103,7 +104,9 @@ rand_index=$(( RANDOM % 5 ))
 attack_apt="${apt_groups[$rand_index]}"
 
 # set to false for normal run
-system_has_restarted=true
+system_has_restarted=false
+system_needed_cold=false
+system_needed_warm=false
 
 # --------------------------
 # generated with Luma AI and modified by Quasolaris
