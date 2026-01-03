@@ -14,7 +14,7 @@ if [ ! -d "evidence" ]; then
 fi
 
 
-function test() {
+function close_game() {
 	clear
 	printf "
 	Do you want to quit the game? The crew and submarine will be lost to the depth of the sea...
@@ -32,7 +32,7 @@ function test() {
 	fi
 }
 # killing mpv to stop background sound if ^C is used and print game statistics
-trap test SIGINT
+trap close_game SIGINT
 
 
 clear
@@ -53,11 +53,6 @@ player_message_was_corrupt=false
 player_not_authentic_launched=false
 player_no_longer_commander=false
 player_radiation_sickness=false
-
-
-player_error_one=""
-player_error_two=""
-player_error_three=""
 
 player_restart_process="0"
 player_patch_applied=()
@@ -85,6 +80,33 @@ run_system_check=false
 
 
 attack_apt="NaN"
+
+
+# error codes
+e1="0xA1F0C0FFEE"
+e2="0xB2DEADBEEF"
+e3="0xC300MBR404"
+e4="0xD4STACK0VER"
+e5="0xE5FIRMWAREX"
+e6="0xF600NULLPTR"
+
+error_codes=(
+	"$e1"
+	"$e2"
+	"$e3"
+	"$e4"
+	"$e5"
+	"$e6"
+)
+
+rand_index=$(( RANDOM % 6 ))
+player_error_one="${error_codes[$rand_index]}"
+
+rand_index=$(( RANDOM % 6 ))
+player_error_two="${error_codes[$rand_index]}"
+
+rand_index=$(( RANDOM % 6 ))
+player_error_three="${error_codes[$rand_index]}"
 
 # set APT
 a1="HIDDEN COBRA"

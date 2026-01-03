@@ -17,7 +17,7 @@ You are a captain of a nuclear submarine that is on station somewhere in the dep
 	- `cd Hacked-for-Nuclear-War`
 	- `bash hacked_for_nuclear_war.sh`
 
-The games was tested on the following platforms, but as it is plain bash it should work on every system that has Bash installed (Windows can use WSL):
+The game was tested on the following platforms, but as it is plain bash it should work on every system that has Bash installed (Windows can use WSL):
 
 - Linux
 - FreeBSD
