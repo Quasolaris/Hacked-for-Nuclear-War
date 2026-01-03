@@ -2,7 +2,12 @@
 
 You are a captain of a nuclear submarine that is on station somewhere in the depth of the sea. Armed with [SLBMs](https://en.wikipedia.org/wiki/Submarine-launched_ballistic_missile) you are responsible for your nations deterrence and lasting peace on earth. When you get the orders to launch a counter strike, strange things happen to your Submarine Command System (SCS), soon you realize that your submarine was hit by a cyber attack. You need to dive and investigate who is responsible and how to restore your ship to full functionality. 
 
-*Hacked for Nuclear war* is a little game written in Bash, that makes you investigate simple logs in search for Indicators of Compromise (IoC) that you get from the [MITRE | ATT&CK](https://attack.mitre.org/groups/) collection. The logs and general behaviour of the submarine is randomly generated for every play-through, and you will have multiple endings that are triggered through your actions.  
+<p align="center">
+<img width="557" height="392" alt="image" src="https://github.com/user-attachments/assets/938840ec-f3f0-4018-b93e-4361d12cc5bf" /> 
+</p>
+
+
+*Hacked for Nuclear war* is a little game written in Bash, that makes you investigate simple logs in search for Indicators of Compromise (IoC) that you get from the [MITRE | ATT&CK](https://attack.mitre.org/groups/) collection. The submarines attacker, nation, logs and general behaviour of the systems is randomly generated for every play-through, and you will have multiple endings that are triggered through your actions.
 
 ## Installation
 1. Clone the repository to your machine `git clone https://github.com/Quasolaris/Hacked-for-Nuclear-War.git`
