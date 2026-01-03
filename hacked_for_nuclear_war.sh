@@ -22,7 +22,7 @@ function test() {
 	"
 	read -p "Type 'Yes' to quit the game: " player_quit
 
-	if [[ "$player_quit" == "Yes" ]]; then
+	if [[ "$player_quit" == "Yes" || "$player_quit" == "yes" ]]; then
 		pkill mpv
 		print_player_stats
 		exit 1
@@ -64,6 +64,8 @@ player_patch_applied=()
 
 player_user_name=""
 player_chosen_enemy="NaN"
+player_saw_radioactivity=false
+
 
 system_full_check=true
 system_memory_check=true
@@ -190,23 +192,15 @@ source modules/apt_forensic_evidences.sh
 
 
 # clean up evidence and set new APT forensics
-rm -rf evidence/proc_t &> /dev/null
-rm -rf evidence/file_t &> /dev/null
-rm -rf evidence/account_t &> /dev/null
-rm -rf evidence/command_t &> /dev/null
-rm -rf evidence/commands.log &> /dev/null
-rm -rf evidence/files.log &> /dev/null
-rm -rf evidence/final_processes.log &> /dev/null
-rm -rf evidence/processes.log &> /dev/null
-rm -rf evidence/final_files.log &> /dev/null
-rm -rf evidence/launch_computer_output.log &> /dev/null
+rm -rf evidence/* &> /dev/null
+
 prepare_evidence
 
 set_submarine_system_health
 
 START_TIME=$SECONDS
 # comment to skip start sequence 
-game_start_sequence
+#game_start_sequence
 digital_forensics
 
 # ends script in case of commenting in all modules
