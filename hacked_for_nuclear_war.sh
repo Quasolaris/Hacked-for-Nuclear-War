@@ -65,7 +65,7 @@ player_patch_applied=()
 player_user_name=""
 player_chosen_enemy="NaN"
 player_saw_radioactivity=false
-
+player_secure_forensics=false
 
 system_full_check=true
 system_memory_check=true
@@ -103,7 +103,7 @@ rand_index=$(( RANDOM % 5 ))
 attack_apt="${apt_groups[$rand_index]}"
 
 # set to false for normal run
-system_has_restarted=false
+system_has_restarted=true
 
 # --------------------------
 # generated with Luma AI and modified by Quasolaris

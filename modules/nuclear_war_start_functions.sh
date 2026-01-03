@@ -575,8 +575,15 @@ game_start_sequence() {
 
 YEAR: 2029
 
-You are the captain of one of many nuclear submarines armed with Submarine Launched Ballistic Missiles (SLBMs).
-The nuclear deterrence you provide is crucial for the security of our nation and world peace, do not take decisions lightly and be sure, that you do the right thing.
+Somewhere in the depth of the sea....
+
+You just started your shift at the bridge, ready for another day of protocols, processes and military structure.
+
+You are the captain of one of many nuclear submarines armed with Submarine Launched Ballistic Missiles (SLBMs). With their range of over 6000 KM together with the stealth of the submarine, your SLBMs are the pillars of your nations nuclear deterrence. You have two tasks while on station, stay undetected and retaliate any nuclear attack on your nation.
+
+Every morning you will get a new set of launch codes, in case of a launch order you need to check them against the given codes. If the index and word match, you can concur and launch the missiles, if they do not match you need to abort the sequence.
+
+That is all for now, good and a hopefully uneventful shift.
 
 "
 read -p "Press ENTER to start game:"

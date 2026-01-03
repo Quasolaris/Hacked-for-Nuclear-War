@@ -2,17 +2,26 @@
 # processes used
 hidden_cobra() {
 processes_used=(
-"CreateProcessAsUserA"
 "Adobe Flash Player"
 "forfiles.exe"
 "mshta.exe"
 "Bankshot"
+"dfrgui.exe"
+"wsmprovhost.exe"
+"KernelCallbackTable"
+"mshta.exe"
+"wscript.exe"
+"rundll32.exe"
 )
 
 
 # file names
 files_used=(
 "h983ksd4.htm"
+"mse.htm"
+"kljihsfee.htm"
+"message.lnk"
+"win_fw.dll"
 )
 
 # used accounts
@@ -31,6 +40,8 @@ commands_used=(
 "wget https://9fj0ospsgfsdf.cdn/j903fgs.png"
 "xcat -f key_to_peace.bin j903fgs.png > /home/scs/downlink/alksjf9803jsdf.sh"
 "net use"
+"ProcessExtensions.StartProcessAsCurrentUser("send_launch_message.exe");"
+"run C:\ProgramData\ThumbNail\thumbnail.db"
 )
 }
 
@@ -38,10 +49,11 @@ commands_used=(
 # processes used
 apt28() {
 processes_used=(
-"ApplicationImpersonation"
 "MMDeviceEnumerator"
+"Komplex.exe"
 "chipher.exe"
 "reGerog"
+"cmd.exe"
 )
 
 
@@ -67,6 +79,9 @@ commands_used=(
 "vssadmin delete shadows /all"
 "wevtutil cl System"
 "wevtutil cl Security"
+"certutil -decode msg_02112029.txt"
+"cmd.exe /c cipher /W:C"
+"New-ManagementScope -Name "AOC Databases" -DatabaseRestrictionFilter {Name -Like "SCS*"}"
 )
 }
 
@@ -80,6 +95,7 @@ processes_used=(
 "Systeminfo"
 "VersaMem"
 "certutil"
+"wevtutil.exe"
 )
 
 # file names
@@ -88,6 +104,9 @@ files_used=(
 "C:\Windows\Temp\sdfuhjk932"
 "C:\Windows\Temp\s349tjsogf"
 "C:\Windows\Temp\sdHBGD32"
+"ntds.dit"
+"HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL"
+"C:\Users\Public\Documentsfiles\systeminfo.dat"
 )
 
 # used accounts
@@ -104,8 +123,8 @@ accounts_used=(
 commands_used=(
 "net group /dom"
 "net user"
-"\/pfrm2.0\/bin\/"
-"\/usr\/local\/bin\/"
+"/pfrm2.0/bin/"
+"/usr/local/bin/"
 "firewallsd"
 "net localgroup administrators"
 "netsh interface firewall show all"
@@ -113,6 +132,9 @@ commands_used=(
 "ipconfig"
 "uname"
 "reg query hklm\software"
+"net group "Domain Admins" /dom"
+"Get-EventLog security"
+"Get-EventLog security -instanceid 4624 "
 )
 }
 
@@ -134,8 +156,9 @@ files_used=(
 "sdfsdf.dll"
 "uifujf.dll"
 "lkfjhkdslhjfg.dll"
-"C:\Windows\Debug and C:\Perflogs\payload_1"
-"C:\Windows\Debug and C:\Perflogs\payload_2"
+"C:\Windows\Debug\payload_1.js"
+"C:\Perflogs\payload_2.js"
+"backd_tst.js"
 )
 
 
@@ -150,10 +173,9 @@ accounts_used=(
 
 # used commands 
 commands_used=(
-"base64 -d C:\Windows\Debug and C:\Perflogs\payload_1"
-"base64 -d C:\Windows\Debug and C:\Perflogs\payload_2"
-"run C:\Perflogs\payload_1"
-"run C:\Perflogs\payload_2"
+"base64 -d C:\Windows\Debug\payload_1.js > run_msg.c"
+"base64 -d C:\Windows\Perflogs\payload_2.js >> run_msg.c"
+"gcc run_msg.c -o run_msg && ./run_msg"
 )
 }
 
@@ -167,6 +189,7 @@ processes_used=(
 "Intel Active Management Technology Dashboard"
 "Dipsind"
 "adbup_v2"
+"JP1N"
 )
 
 
