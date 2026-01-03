@@ -74,6 +74,8 @@ system_kernel_check=true
 system_boot_check=true
 system_memprotection_check=true
 
+system_has_restarted=false
+
 run_enable_memprotect=false
 run_boot_check=false
 run_kernel_recompile=false
@@ -102,11 +104,6 @@ apt_groups=(
 
 rand_index=$(( RANDOM % 5 ))
 attack_apt="${apt_groups[$rand_index]}"
-
-# set to false for normal run
-system_has_restarted=false
-system_needed_cold=false
-system_needed_warm=false
 
 # --------------------------
 # generated with Luma AI and modified by Quasolaris
@@ -173,7 +170,6 @@ print_player_stats() {
 		Kernel Recompile Check Status:\t\t $system_kernel_check
 		Boot Sector Check Status\t\t $system_boot_check
 		Memory Protection Enabled:\t\t $system_memprotection_check
-
 
 		Crew got radiation sickness:\t\t $player_radiation_sickness
 

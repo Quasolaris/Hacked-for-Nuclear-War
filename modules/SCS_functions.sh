@@ -2,22 +2,18 @@ set_error_check_states() {
 	error_string="$player_error_one $player_error_two $player_error_three"
 		if [[ "$error_string" == *"A1F0C0FFEE"* ]]; then
 			system_memprotection_check=false
-			system_needed_warm=true
 		fi
 		if [[ "$error_string" == *"B2DEADBEEF"* ]]; then
 			system_kernel_check=false
-			system_needed_cold=true
 		fi
 		if [[ "$error_string" == *"C300MBR404"* ]]; then
 			system_boot_check=false
-			system_needed_warm=true
 		fi
 		if [[ "$error_string" == *"D4STACK0VER"* ]]; then
 			system_memory_check=false
 		fi
 		if [[ "$error_string" == *"E5FIRMWAREX"* ]]; then
 			system_full_check=false
-			system_needed_cold=true
 		fi
 		if [[ "$error_string" == *"F600NULLPTR"* ]]; then
 			system_storage_check=false
