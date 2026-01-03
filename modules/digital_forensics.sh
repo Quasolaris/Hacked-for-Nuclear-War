@@ -3,23 +3,23 @@ blast_radius="1"
 secure_forensics="2"
 patch_system="3"
 restart_system="4"
-core_dump="5"
-logs_read="6"
-determine_attack="7"
-send_report="8"
+logs_read="5"
+determine_attack="6"
+send_report="7"
 
 user_choice=""
 task_done=0
 
 
 digital_forensics() {
-	#dive
-
+	dive
+	sleep 5
+	clear
 	printf "
 =========================================================================
 Your Submarine Command System (SCS) seems to be infected, you need to determine what happened and restore it to full functionality. 
 
-To do so, you will have different tasks and operations you can do, the best way is to follow them step-by-step to ensure that you did not miss anything and that the infection is contained and cleaned. But you are free to choose them in any order you'd like.
+To do so, you first need to patch up your system and restart the SCS. Afterwards you can start investigating the logs to determine from where the cyber attack came from. Remember that it is advised to secure the evidence before the patching and restarting, as it may destroy log files.
 =========================================================================
 
 "
@@ -45,7 +45,6 @@ while [ "$game_finished" == "false" ]; do
 [$secure_forensics] - Secure forensic data
 [$patch_system] - Patch systems
 [$restart_system] - Restart systems and run integrity check
-[$core_dump] - Analyse core dump
 [$logs_read] - Analyse collected logs and evidence
 [$determine_attack] - Determine origin of attack
 [$send_report] - Send report to command
@@ -58,7 +57,7 @@ APPLIED PATCHES:\t |"
 printf ' %s |' "${player_patch_applied[@]}"
 
 printf "
-ATTACKING NATION:\t $player_chosen_enemy 
+ATTACKING APT GROUP:\t $player_chosen_enemy 
 
 ==================================================
 "
@@ -84,15 +83,12 @@ ATTACKING NATION:\t $player_chosen_enemy
 			restart_computer
 			;;
 		5)
-			read_dump
-			;;
-		6)
 			read_logs_menu
 			;;
-		7)
+		6)
 			determine_enemy
 			;;
-		8)
+		7)
 			report_sent
 			;;
 	esac
@@ -101,6 +97,26 @@ done
 }
 
 secure_evidence() {
+	clear
+		if [[ "$system_has_restarted" == "true" ]]; then
+				clear
+		printf "==================================================
+You did not secured the evidence before restarting the system. Some logs may be corrupted because of it.
+==================================================\n\n"
+			random_start=$(( 1 + RANDOM % 3 ))
+	case "$random_start" in
+		    1) 
+		        echo "LOG FILE CORRUPT" > evidence/commands.log
+		        ;;
+		    2)
+		        echo "LOG FILE CORRUPT" > evidence/processes.log
+		        ;;
+		    3)
+		        echo "LOG FILE CORRUPT" > evidence/files.log
+		        ;;
+	esac
+	fi
+	player_secure_forensics=true
 	printf "\n\nCOLLECTING FORENSIC DATA\n\n"
 
 	loading_animation
@@ -109,7 +125,7 @@ secure_evidence() {
 
 	printf "\n\nDATA COLLECTED AND STORED INSIDE EVIDENCE DIRECTORY\n\n"
 
-	secure_forensics="X"
+	secure_forensics="\e[32mX\e[0m"
 
 	read -p "Press ENTER to return to Forensics Menu: " 
 }
@@ -120,19 +136,6 @@ restart_computer() {
  restart_process
 }
 
-read_dump() {
-		if [[ "$system_has_restarted" == "false" ]]; then
-		clear
-		printf "==================================================
-You need to patch and restart your system first. Investigating the cause may trigger the malware self-destruction function.
-	==================================================\n\n"
-		read -p "Press ENTER to return to to Forensics Menu"
-	else
-		printf "DUMP CORE"
-	fi
-}
-
-
 determine_enemy(){
 user_choice="0"
 while [ "$user_choice" != "6" ]; do
@@ -141,15 +144,10 @@ while [ "$user_choice" != "6" ]; do
 	until [[ $user_choice =~ ^[0-7]$ && $user_choice -gt 0 ]]; do
 	printf "==============[ WHO IS RESPONSIBLE ]=================
 [1] - HIDDEN COBRA 
-		=> https://attack.mitre.org/groups/G0032/
 [2] - APT28 
-		=> https://attack.mitre.org/groups/G0007/
 [3] - UNC3236
-		=> https://attack.mitre.org/groups/G1017/
-[4] - APT-C-43 
-		=> https://attack.mitre.org/groups/G0095/
+[4] - APT40
 [5] - PLATINUM 
-		=> https://attack.mitre.org/groups/G0068/
 [6] - Go back to Forensics Menu
 [7] - Mark task as DONE
 ==================================================
@@ -175,7 +173,7 @@ while [ "$user_choice" != "6" ]; do
 			player_chosen_enemy="UNC3236"
 			;;
 		4)
-			player_chosen_enemy="APT-C-43 "
+			player_chosen_enemy="APT40"
 			;;
 		5)
 			player_chosen_enemy="PLATINUM"
@@ -184,7 +182,7 @@ while [ "$user_choice" != "6" ]; do
 			echo "6"
 			;;
 		7)
-			determine_attack="X"
+			determine_attack="\e[32mX\e[0m"
 			;;
 	esac
 	done

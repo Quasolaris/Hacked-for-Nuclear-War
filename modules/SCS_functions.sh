@@ -163,7 +163,7 @@ ERROR CODE LOOKUP
 			echo "4"
 			;;
 		5)
-			patch_system="X"
+			patch_system="\e[32mX\e[0m"
 			;;
 	esac
 done

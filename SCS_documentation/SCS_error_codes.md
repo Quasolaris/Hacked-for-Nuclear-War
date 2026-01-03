@@ -1,4 +1,3 @@
-<!--- Written by ChatGPT and modified by Quasolaris --->
 # Submarine Command System (SCS)
 
 ## CATASTROPHIC FAULT CODE MANUAL

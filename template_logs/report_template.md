@@ -1,6 +1,3 @@
-<!--- Written by ChatGPT and modified by Quasolaris --->
----
-
 ```
 -----------------------------------------------------------------
 SCS CYBER INCIDENT ANALYSIS REPORT
@@ -22,7 +19,7 @@ CLASSIFICATION: TOP SECRET // EYES ONLY
 1. It is **highly likely** that the failure of the Submarine Command System resulted from **deliberate hostile action** conducted by a **foreign state-level adversary**, the evidence points it to be **__APT_ACTOR__**.
 2. The pattern of system degradation is **inconsistent with random mechanical failure** and **consistent with intentional compromise**.
 3. The operation appears designed to **deny capability without overt destruction**, suggesting a strategic objective of **plausible deniability**.
-4. __APT_ACTOR__ has demonstrated **prior interest and capability** in similar non-kinetic interference operations within the past decade (SIMULATION CONTEXT).
+4. __APT_ACTOR__ has demonstrated **prior interest and capability** in similar non-kinetic interference operations within the past decade.
 
 ---
 

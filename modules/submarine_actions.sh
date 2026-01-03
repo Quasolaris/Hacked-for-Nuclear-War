@@ -155,24 +155,30 @@ printf "
 			fi
 
 			if [[ "$system_reactor_affected" == "true" ]]; then
-				printf "\n ====[ \e[31mREACTOR SYSTEM AFFECTED\e[0m\n
+				if [[ "$player_saw_radioactivity" == "false" ]]; then
+					player_saw_radioactivity=true
+					printf "\n ====[ \e[31mREACTOR SYSTEM AFFECTED\e[0m\n
 
 				MEASURED RADIOACTIVITY OVER THRESHOLD
 				SURFACING SHIP AND EVACUATION IS ADVISED
+
 				"
-				mpv --no-terminal sounds/alarm_submarine_dive.opus &
+					mpv --no-terminal sounds/alarm_submarine_dive.opus &
 
-				printf "\nShould we surface the ship?\n\n"
+					printf "\nShould we surface the ship?\n\n"
 
-				read -p "(Y)es, surface the ship! | (N)o, we need to stay deep: " response
-				if [[ "$response" = "y" || "$response" = "Y" ]]; then
-					printf "
-					        ===>\tSURFACING SHIP\n\n"
-					        sleep 10
-					        player_radiation_sickness=false
-					        emergency_blow
+					read -p "(Y)es, surface the ship! | (N)o, we need to stay deep: " response
+					if [[ "$response" = "y" || "$response" = "Y" ]]; then
+						printf "
+						        ===>\tSURFACING SHIP\n\n"
+						        sleep 10
+						        player_radiation_sickness=false
+						        emergency_blow
+					else
+						printf "\n\nSUBMARINE WILL STAY UNDER WATER"
+					fi
 				else
-					printf "\n\nSUBMARINE WILL STAY UNDER WATER"
+						printf "\n ====[ \e[31mREACTOR SYSTEM AFFECTED\e[0m\n\n"
 				fi
 
 			else
@@ -187,7 +193,7 @@ printf "
 			
 			;;
 		5)
-			blast_radius="X"
+			blast_radius="\e[32mX\e[0m"
 			;;
 	esac
 done
