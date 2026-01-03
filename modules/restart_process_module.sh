@@ -86,6 +86,9 @@ restart_process() {
 		sleep 15
 
 		if [[ "$player_restart_process" == "1" ]]; then
+			# player acted right for cold restart
+			system_needed_cold=false
+			
 			printf "\n\n\tDISCONNECTING POWER FOR COLD RESTART\n\n\t"
 			sleep 10
 			mpv --no-terminal sounds/power_out.opus 
@@ -100,6 +103,9 @@ restart_process() {
 			printf "\n\n\tOPERATING SYSTEM LOADED" 
 			sleep 10
 		elif [[ "$player_restart_process" == "2"  ]]; then
+			# player acted right for warm restart
+			system_needed_warm=false
+
 			printf "\n\n\tRELOADING FIRMWARE\n\n\t"
 			loading_animation
 			printf "\n\n\tLOADING OPERATING SYSTEM FROM TAPE"
@@ -128,8 +134,8 @@ restart_process() {
 		printf "\n\n\tRUNNING INTEGRITY CHECK\n\n\t"
 		loading_animation
 		loading_animation
-		system_check_string="$system_full_check $system_memory_check $system_storage_check $system_kernel_check $system_boot_check $system_memprotection_check"
-		if [[ "$system_check_string" = *"false"*  ]]; then
+		system_check_string="$system_needed_warm $system_needed_cold $system_full_check $system_memory_check $system_storage_check $system_kernel_check $system_boot_check $system_memprotection_check"
+		if [[ "$system_check_string" != *"true"*  ]]; then
 		printf "\n\n\tINTEGRITY CHECK \e[31mFAILED\e[0m\n\n\t"
 		sleep 10
 		clear
