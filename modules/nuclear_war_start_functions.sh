@@ -1,24 +1,6 @@
 # needed for random numbers
 set -euo pipefail
 
-# error codes
-e1="0xA1F0C0FFEE"
-e2="0xB2DEADBEEF"
-e3="0xC300MBR404"
-e4="0xD4STACK0VER"
-e5="0xE5FIRMWAREX"
-e6="0xF600NULLPTR"
-
-error_codes=(
-	"$e1"
-	"$e2"
-	"$e3"
-	"$e4"
-	"$e5"
-	"$e6"
-)
-
-
 # nuclear codes to verify order
 one="ALPHA"
 two="BRAVO"
@@ -470,16 +452,11 @@ slbm_launch_sequence() {
 	sleep 7
 
 	# random set error codes for future forensic targets
-	rand_index=$(( RANDOM % 6 ))
-	player_error_one="${error_codes[$rand_index]}"
 	printf "\t\t\t=== \e[31mERROR $player_error_one\e[0m\n\n\n"
 	sleep 15
-	rand_index=$(( RANDOM % 6 ))
-	player_error_two="${error_codes[$rand_index]}"
 	printf "\t\t\t=== \e[31mERROR $player_error_two\e[0m\n\n\n"
 	sleep 18
-	rand_index=$(( RANDOM % 6 ))
-	player_error_three="${error_codes[$rand_index]}"
+
 	printf "\t\t\t=== \e[31mERROR $player_error_three\e[0m\n\n\n"
 	sleep 5
 	printf "\t\t\t========================================================\n\n\n"
@@ -672,12 +649,6 @@ else
 		exit 1
 	fi
 	printf "SLBMs NOT LAUNCHED\n\n"
-	rand_index=$(( RANDOM % 6 ))
-	player_error_one="${error_codes[$rand_index]}"
-	rand_index=$(( RANDOM % 6 ))
-	player_error_two="${error_codes[$rand_index]}"
-	rand_index=$(( RANDOM % 6 ))
-	player_error_three="${error_codes[$rand_index]}"
 fi
 
 
