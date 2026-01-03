@@ -14,7 +14,7 @@ You are a captain of a nuclear submarine that is on station somewhere in the dep
 2. *OPTIONAL* install [glow](https://github.com/charmbracelet/glow) with the package manager of your choice
 	- The script detects if you have glow installed, if not it will default to the `less` command.
 3. Run the game inside the cloned folder:
-	- `cd /Hacked-for-Nuclear-War`
+	- `cd Hacked-for-Nuclear-War`
 	- `bash hacked_for_nuclear_war.sh`
 
 The games was tested on the following platforms, but as it is plain bash it should work on every system that has Bash installed (Windows can use WSL):
