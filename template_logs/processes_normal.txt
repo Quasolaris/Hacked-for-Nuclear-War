@@ -55,7 +55,7 @@ vivaldi.exe
 brave.exe
 iexplore.exe
 edge.exe
-safari.exe (rare)
+safari.exe
 onedrive.exe
 dropbox.exe
 googledrivesync.exe
@@ -157,26 +157,26 @@ wevtutil.exe
 powershell.exe
 pwsh.exe
 powershell_ise.exe
-powershell.exe (again)
-explorer.exe (again)
-chrome.exe (again)
-firefox.exe (again)
-msedge.exe (again)
-notepad.exe (again)
-calc.exe (again)
-mspaint.exe (again)
-winlogon.exe (again)
-services.exe (again)
-lsass.exe (again)
-svchost.exe (again)
-System (again)
+powershell.exe 
+explorer.exe 
+chrome.exe 
+firefox.exe 
+msedge.exe 
+notepad.exe 
+calc.exe 
+mspaint.exe 
+winlogon.exe 
+services.exe 
+lsass.exe 
+svchost.exe 
+System 
 init
 systemd
 kthreadd
-ksoftirqd/*
+ksoftirqd
 rcu_sched
 rcu_preempt
-watchdog/*
+watchdog
 dbus-daemon
 polkitd
 login

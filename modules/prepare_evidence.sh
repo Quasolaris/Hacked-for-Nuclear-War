@@ -12,6 +12,7 @@ prepare_evidence() {
 		platinum
 	fi
 
+	cp template_logs/report_template.md evidence/report.md
 	# compile new logs with set enemy
 	cp template_logs/processes_template.log evidence/processes.log
 	shuf evidence/processes.log -o evidence/processes.log

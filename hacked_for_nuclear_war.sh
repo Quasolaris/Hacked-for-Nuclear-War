@@ -55,9 +55,9 @@ player_no_longer_commander=false
 player_radiation_sickness=false
 
 
-player_error_one="0xA1F0C0FFEE"
-player_error_two="0xC300MBR404"
-player_error_three="0xD4STACK0VER"
+player_error_one=""
+player_error_two=""
+player_error_three=""
 
 player_restart_process="0"
 player_patch_applied=()

@@ -672,6 +672,12 @@ else
 		exit 1
 	fi
 	printf "SLBMs NOT LAUNCHED\n\n"
+	rand_index=$(( RANDOM % 6 ))
+	player_error_one="${error_codes[$rand_index]}"
+	rand_index=$(( RANDOM % 6 ))
+	player_error_two="${error_codes[$rand_index]}"
+	rand_index=$(( RANDOM % 6 ))
+	player_error_three="${error_codes[$rand_index]}"
 fi
 
 
