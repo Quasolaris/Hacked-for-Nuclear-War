@@ -12,13 +12,12 @@ task_done=0
 
 
 digital_forensics() {
-	#dive
-	prepare_evidence
+	dive
 	printf "
 =========================================================================
 Your Submarine Command System (SCS) seems to be infected, you need to determine what happened and restore it to full functionality. 
 
-To do so, you will have different tasks and operations you can do, the best way is to follow them step-by-step to ensure that you did not miss anything and that the infection is contained and cleaned. But you are free to choose them in any order you'd like.
+To do so, you first need to patch up your system and restart the SCS. Afterwards you can start investigating the logs to determine from where the cyber attack came from. Remember that it is advised to secure the evidence before the patching and restarting, as it may destroy log files.
 =========================================================================
 
 "
@@ -96,6 +95,26 @@ done
 }
 
 secure_evidence() {
+	clear
+		if [[ "$system_has_restarted" == "true" ]]; then
+				clear
+		printf "==================================================
+You did not secured the evidence before restarting the system. Some logs may be corrupted because of it.
+==================================================\n\n"
+			random_start=$(( 1 + RANDOM % 3 ))
+	case "$random_start" in
+		    1) 
+		        echo "LOG FILE CORRUPT" > evidence/commands.log
+		        ;;
+		    2)
+		        echo "LOG FILE CORRUPT" > evidence/processes.log
+		        ;;
+		    3)
+		        echo "LOG FILE CORRUPT" > evidence/files.log
+		        ;;
+	esac
+	fi
+	player_secure_forensics=true
 	printf "\n\nCOLLECTING FORENSIC DATA\n\n"
 
 	loading_animation
@@ -114,19 +133,6 @@ secure_evidence() {
 restart_computer() {
  restart_process
 }
-
-read_dump() {
-		if [[ "$system_has_restarted" == "false" ]]; then
-		clear
-		printf "==================================================
-You need to patch and restart your system first. Investigating the cause may trigger the malware self-destruction function.
-	==================================================\n\n"
-		read -p "Press ENTER to return to to Forensics Menu"
-	else
-		printf "DUMP CORE"
-	fi
-}
-
 
 determine_enemy(){
 user_choice="0"

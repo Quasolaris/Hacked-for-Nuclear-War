@@ -45,34 +45,34 @@ restart_process() {
 		sleep 1
 
 		if [[ "$run_system_check" == "true" ]]; then
-		printf "\n\nRUNNING FULL SYSTEM CHECK\n\n"
+		printf "\n\n\tRUNNING FULL SYSTEM CHECK\n\n\t"
 		loading_animation
-		printf "\n\nFINSIHED FULL SYSTEM CHECK\n\n"
+		printf "\n\n\tFINSIHED FULL SYSTEM CHECK\n\n\t"
 		fi
 		if [[ "$run_memory_check" == "true" ]]; then
-		printf "\n\nRUNNING MEMORY CHECK\n\n"
+		printf "\n\n\tRUNNING MEMORY CHECK\n\n\t"
 		loading_animation
-		printf "\n\nFINISHED MEMORY CHECK\n\n"
+		printf "\n\n\tFINISHED MEMORY CHECK\n\n\t"
 		fi
 		if [[ "$run_storage_check" == "true" ]]; then
-		printf "\n\nRUNNING STORAGE CHECK\n\n"
+		printf "\n\n\tRUNNING STORAGE CHECK\n\n\t"
 		loading_animation
-		printf "\n\nFINISHEDSTORAGE CHECK\n\n"
+		printf "\n\n\tFINISHEDSTORAGE CHECK\n\n\t"
 		fi
 		if [[ "$run_kernel_recompile" == "true" ]]; then
-		printf "\n\nRECOMPILING KERNEL\n\n"
+		printf "\n\n\tRECOMPILING KERNEL\n\n\t"
 		loading_animation
-		printf "\n\nFINISHED KERNEL\n\n"
+		printf "\n\n\tFINISHED KERNEL\n\n\t"
 		fi
 		if [[ "$run_boot_check" == "true" ]]; then
-		printf "\n\nRUNNING BOOT SECTOR CHECK\n\n"
+		printf "\n\n\tRUNNING BOOT SECTOR CHECK\n\n\t"
 		loading_animation
-		printf "\n\nFINISHED BOOT SECTOR CHECK\n\n"
+		printf "\n\n\tFINISHED BOOT SECTOR CHECK\n\n\t\t"
 		fi
 		if [[ "$run_enable_memprotect" == "true" ]]; then
-		printf "\n\nENABLING MEMORY PROTECTION\n\n"
+		printf "\n\n\tENABLING MEMORY PROTECTION\n\n\t"
 		loading_animation
-		printf "\n\nMEMORY PROTECTION ENABLED\n\n"
+		printf "\n\n\tMEMORY PROTECTION ENABLED\n\n\t"
 		fi
 
 		sleep 5
@@ -86,25 +86,25 @@ restart_process() {
 		sleep 15
 
 		if [[ "$player_restart_process" == "1" ]]; then
-			printf "\n\nDISCONNECTING POWER FOR COLD RESTART\n\n"
+			printf "\n\n\tDISCONNECTING POWER FOR COLD RESTART\n\n\t"
 			sleep 10
 			mpv --no-terminal sounds/power_out.opus 
 			sleep 10
 			mpv --no-terminal sounds/power_on.opus
 			sleep 10
-			printf "\n\nREFLASHING FIRMWARE\n\n"
+			printf "\n\n\tREFLASHING FIRMWARE\n\n\t"
 			loading_animation
-			printf "\n\nFIRMWARE FLASHED\n\n"
-			printf "\n\nLOADING OPERATING SYSTEM FROM TAPE"
+			printf "\n\n\tFIRMWARE FLASHED\n\n\t"
+			printf "\n\n\tLOADING OPERATING SYSTEM FROM TAPE"
 			mpv --no-terminal sounds/tape_load.opus
-			printf "\n\nOPERATING SYSTEM LOADED" 
+			printf "\n\n\tOPERATING SYSTEM LOADED" 
 			sleep 10
 		elif [[ "$player_restart_process" == "2"  ]]; then
-			printf "\n\nRELOADING FIRMWARE\n\n"
+			printf "\n\n\tRELOADING FIRMWARE\n\n\t"
 			loading_animation
-			printf "\n\nLOADING OPERATING SYSTEM FROM TAPE"
+			printf "\n\n\tLOADING OPERATING SYSTEM FROM TAPE"
 			mpv --no-terminal sounds/tape_load.opus
-			printf "\n\nOPERATING SYSTEM LOADED" 
+			printf "\n\n\tOPERATING SYSTEM LOADED" 
 			sleep 10
 		fi
 
@@ -125,12 +125,12 @@ restart_process() {
 	"
 		loading_animation
 		sleep 3
-		printf "\n\nRUNNING INTEGRITY CHECK\n\n"
+		printf "\n\n\tRUNNING INTEGRITY CHECK\n\n\t"
 		loading_animation
 		loading_animation
 		system_check_string="$system_full_check $system_memory_check $system_storage_check $system_kernel_check $system_boot_check $system_memprotection_check"
 		if [[ "$system_check_string" = *"false"*  ]]; then
-		printf "\n\nINTEGRITY CHECK \e[31mFAILED\e[0m\n\n"
+		printf "\n\n\tINTEGRITY CHECK \e[31mFAILED\e[0m\n\n\t"
 		sleep 10
 		clear
 		printf "
@@ -147,7 +147,7 @@ restart_process() {
 
 		emergency_blow
 		else
-			printf "\n\nINTEGRITY CHECK COMPLETE\n\n"
+			printf "\n\n\tINTEGRITY CHECK COMPLETE\n\n\t"
 		fi
 
 		# resetting system health as all necessary steps were made
@@ -164,7 +164,7 @@ restart_process() {
 		login_screen
 
 	else
-		printf "\n\nSYSTEM RESTART STOPPED"
+		printf "\n\n\tSYSTEM RESTART STOPPED"
 		sleep 3
 	fi
 }

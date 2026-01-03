@@ -7,8 +7,32 @@ if command -v glow &> /dev/null; then
 else
     read_file_command="less"
 fi
+
+# check if evidence directory exists, if not create it
+if [ ! -d "evidence" ]; then
+  mkdir evidence
+fi
+
+
+function test() {
+	clear
+	printf "
+	Do you want to quit the game? The crew and submarine will be lost to the depth of the sea...
+
+	"
+	read -p "Type 'Yes' to quit the game: " player_quit
+
+	if [[ "$player_quit" == "Yes" || "$player_quit" == "yes" ]]; then
+		pkill mpv
+		print_player_stats
+		exit 1
+	else
+		clear
+		printf "Press ENTER to go back to the bridge."
+	fi
+}
 # killing mpv to stop background sound if ^C is used and print game statistics
-trap "pkill mpv && print_player_stats" SIGINT
+trap test SIGINT
 
 
 clear
@@ -40,6 +64,8 @@ player_patch_applied=()
 
 player_user_name=""
 player_chosen_enemy="NaN"
+player_saw_radioactivity=false
+player_secure_forensics=false
 
 system_full_check=true
 system_memory_check=true
@@ -56,6 +82,25 @@ run_memory_check=false
 run_system_check=false
 
 attack_apt="NaN"
+
+# set APT
+a1="HIDDEN COBRA"
+a2="APT28"
+a3="UNC3236"
+a4="APT40"
+a5="PLATINUM"
+
+apt_groups=(
+	"$a1"
+	"$a2"
+	"$a3"
+	"$a4"
+	"$a5"
+)
+
+
+rand_index=$(( RANDOM % 5 ))
+attack_apt="${apt_groups[$rand_index]}"
 
 # set to false for normal run
 system_has_restarted=true
@@ -145,14 +190,20 @@ source modules/SCS_functions.sh
 source modules/prepare_evidence.sh
 source modules/apt_forensic_evidences.sh
 
+
+# clean up evidence and set new APT forensics
+rm -rf evidence/* &> /dev/null
+
+prepare_evidence
+
 set_submarine_system_health
 
 START_TIME=$SECONDS
-# uncomment for full game -- DEBUG
-#game_start_sequence
-
+# comment to skip start sequence 
+game_start_sequence
 digital_forensics
 
+# ends script in case of commenting in all modules
 print_player_stats
-
 pkill mpv
+exit 1
