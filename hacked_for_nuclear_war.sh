@@ -200,7 +200,7 @@ set_submarine_system_health
 
 START_TIME=$SECONDS
 # comment to skip start sequence 
-#game_start_sequence
+game_start_sequence
 digital_forensics
 
 # ends script in case of commenting in all modules
