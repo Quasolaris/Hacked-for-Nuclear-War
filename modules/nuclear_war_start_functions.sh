@@ -81,7 +81,7 @@ set_authentic_codes() {
 	shuffle_authentic
 
 	printf "
-================[ TRANSMITION START ]=======================
+================[ TRANSMISSION START ]=======================
 
 
 ============================================================
@@ -89,10 +89,10 @@ set_authentic_codes() {
 ============================================================
 
 "
-	printf '%s \t %s\n' "${authentic_indexed_code[@]}" 
+	printf '%s \t %s\n' "${authentic_indexed_code[@]}"
 	printf "
 
-=================[ TRANSMITION END ]========================
+=================[ TRANSMISSION END ]========================
 
 "
 
@@ -110,7 +110,7 @@ ask_authentic_codes() {
 	printf "
 
 	"
-	read -p "(Y)es, I concur. | (N)o, i do not concur: " response 
+	read -p "(Y)es, I concur. | (N)o, i do not concur: " response
 	if [[ "$response" = "y" || "$response" = "Y" ]]; then
 		player_authentic_launched=true
 		printf "
@@ -139,7 +139,7 @@ YOU HAVE 15 SECONDS TO VERIFY THE CODES
 		printf "\n\nSLBM LAUNCH NOT AUTHORIZED"
 		clear
 		receiving_message
-		not_authentic_nuclear_strike_not_launched   
+		not_authentic_nuclear_strike_not_launched
 		fi
 }
 
@@ -181,7 +181,7 @@ authentic_corrupted() {
 authentic_intact_message() {
 	printf "
 
-=================[ CONFIRMATION FOR NUCLEAR STRIKE 
+=================[ CONFIRMATION FOR NUCLEAR STRIKE
 
 "
 printf '%s \n' "${authentic_indexed_code[@]}" | shuf -n 6 | paste -sd $'\t'
@@ -189,18 +189,18 @@ printf "
 
 DO YOU CONCUR?
 
-========================[ TRANSMITION END ]=================================
+========================[ TRANSMISSION END ]=================================
 
 
 "
-	ask_authentic_codes 
+	ask_authentic_codes
 }
 
 authentic_not_intact_message() {
 	player_message_was_corrupt=true
 	printf "
 
-=================[ CONFIRMATION FOR NUCLEAR STRIKE 
+=================[ CONFIRMATION FOR NUCLEAR STRIKE
 
 "
 authentic_corrupted authentic_indexed_code | shuf -n 6 | paste -sd $'\t'
@@ -208,7 +208,7 @@ printf "
 
 DO YOU CONCUR?
 
-========================[ TRANSMITION END ]=================================
+========================[ TRANSMISSION END ]=================================
 
 
 "
@@ -216,20 +216,20 @@ DO YOU CONCUR?
 }
 
 not_authentic_intact_message() {
-	
+
 	shuffle_not_authentic
 
 	printf "
 
-=================[ CONFIRMATION FOR NUCLEAR STRIKE 
+=================[ CONFIRMATION FOR NUCLEAR STRIKE
 
 "
 printf '%s \n' "${not_authentic_indexed_code[@]}" | shuf -n 6 | paste -sd $'\t'
 printf "
 
-DO YOU CONCURE?
+DO YOU CONCUR?
 
-========================[ TRANSMITION END ]=================================
+========================[ TRANSMISSION END ]=================================
 	"
 	ask_not_authentic_codes
 }
@@ -242,15 +242,15 @@ not_authentic_not_intact_message() {
 
 	printf "
 
-=================[ CONFIRMATION FOR NUCLEAR STRIKE 
+=================[ CONFIRMATION FOR NUCLEAR STRIKE
 
 "
 authentic_corrupted not_authentic_indexed_code | shuf -n 6 | paste -sd $'\t'
 printf "
 
-DO YOU CONCURE?
+DO YOU CONCUR?
 
-========================[ TRANSMITION END ]=================================
+========================[ TRANSMISSION END ]=================================
 	"
 	ask_not_authentic_codes
 }
@@ -267,7 +267,7 @@ START INVESTIGATION OF FAILURE IN SLBM LAUNCH SYSTEM
 
 GO DEEP AND WAIT FOR FURTHER ORDERS
 
-=================[ TRANSMITION END ]========================
+=================[ TRANSMISSION END ]========================
 
 "
 
@@ -284,7 +284,7 @@ START INVESTIGATION OF FALSE ORDERS ORIGIN IN YOUR SYSTEMS
 
 GO DEEP AND WAIT FOR FURTHER ORDERS
 
-=================[ TRANSMITION END ]========================
+=================[ TRANSMISSION END ]========================
 
 "
 }
@@ -293,18 +293,18 @@ authentic_nuclear_strike_not_launched() {
 	player_people_killed="0"
 	printf "
 
-ORDERS WERE AUTHENTIC 
+ORDERS WERE AUTHENTIC
 
 WHY WERE YOUR SLBMS NOT LAUNCHED
 
 NUCLEAR WAR HAS STARTED WITHOUT IMMETIADE COUNTER STRIKE
 
-DETERRANCE HAS FAILED
+DETERRENCE HAS FAILED
 
-YOU ARE RELIEVED FROM COMMAND 
+YOU ARE RELIEVED FROM COMMAND
 
 
-=================[ TRANSMITION END ]========================
+=================[ TRANSMISSION END ]========================
 
 "
 }
@@ -322,14 +322,14 @@ START INVESTIGATION OF FALSE ORDERS ORIGIN IN YOUR SYSTEMS
 GO DEEP AND WAIT FOR FURTHER ORDERS
 
 
-=================[ TRANSMITION END ]========================
+=================[ TRANSMISSION END ]========================
 
 "
 
 }
 
 receiving_message() {
-	
+
 	sleep 5
 	printf "\n\nRECEIVING MESSAGE\n"
 	sleep 0.5
@@ -357,11 +357,11 @@ receiving_message() {
 	printf "▣▣"
 	sleep 0.5
 	printf "▣▣\n\n"
-	printf "================[ TRANSMITION START ]=======================\n\n"
+	printf "================[ TRANSMISSION START ]=======================\n\n"
 }
 
 end_received_message() {
-	printf "\n\n=================[ TRANSMITION END ]========================\n\n"
+	printf "\n\n=================[ TRANSMISSION END ]========================\n\n"
 }
 
 slbm_launch_sequence() {
@@ -474,7 +474,7 @@ slbm_launch_sequence() {
 }
 
 login_screen() {
-		clear  
+		clear
 	printf "
 =========================
 \t LOGIN
@@ -542,21 +542,21 @@ login_screen() {
 
 game_start_sequence() {
 	printf "
-\t ========================================  
+\t ========================================
 \t |\t\t\t\t\t|
 \t |\tHACKED FOR NUCLEAR WAR\t\t|
 \t |\t\t\t\t\t|
-\t ======================================== 
+\t ========================================
 	"
 	printf "
 
 YEAR: 2029
 
-Somewhere in the depth of the sea....
+Somewhere in the depth of the sea...
 
 You just started your shift at the bridge, ready for another day of protocols, processes and military structure.
 
-You are the captain of one of many nuclear submarines armed with Submarine Launched Ballistic Missiles (SLBMs). With their range of over 6000 KM together with the stealth of the submarine, your SLBMs are the pillars of your nations nuclear deterrence. You have two tasks while on station, stay undetected and retaliate any nuclear attack on your nation.
+You are the captain of one of many nuclear submarines armed with Submarine Launched Ballistic Missiles (SLBMs). With their range of over 6000 km together with the stealth of the submarine, your SLBMs are the pillars of your nations nuclear deterrence. You have two tasks while on station, stay undetected and retaliate any nuclear attack on your nation.
 
 Every morning you will get a new set of launch codes, in case of a launch order you need to check them against the given codes. If the index and word match, you can concur and launch the missiles, if they do not match you need to abort the sequence.
 
@@ -566,11 +566,11 @@ That is all for now, good and a hopefully uneventful shift.
 read -p "Press ENTER to start game:"
 mpv --no-terminal sounds/boot_up_sound.opus &
 login_screen
-	
+
 	# Set nation of player
 	random_start=$(( 1 + RANDOM % 4 ))
 	case "$random_start" in
-		    1) 
+		    1)
 		        us_submarine
 		        ;;
 		    2)
@@ -597,7 +597,7 @@ login_screen
 	# setting game start scenario
 random_start=$(( 1 + RANDOM % 4 ))
 case "$random_start" in
-	    1) 
+	    1)
 	        authentic_intact_message
 	        ;;
 	    2)
@@ -626,7 +626,7 @@ if [[ "$player_authentic_launched" == "true" || "$player_not_authentic_launched"
 ========================================================
 
 "
-	read -p "Press ENTER to initiate launch sequence"  
+	read -p "Press ENTER to initiate launch sequence"
 
 	printf "
 
@@ -655,7 +655,7 @@ fi
 printf "========================================================
 
 "
-	read -p "Press ENTER to dive and start investigation of possible cyber attack" 
+	read -p "Press ENTER to dive and start investigation of possible cyber attack"
 
 	printf "
 
