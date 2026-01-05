@@ -11,7 +11,7 @@ You are a captain of a nuclear submarine that is on station somewhere in the dep
 
 ## Installation
 1. Clone the repository to your machine `git clone https://github.com/Quasolaris/Hacked-for-Nuclear-War.git`
-2. Install [MPV](https://mpv.io/). This is an open source command-line media player used to play sounds in the game.
+2. Install [mpv](https://mpv.io/). This is an open source command-line media player used to play sounds in the game.
 3. *OPTIONAL* install [glow](https://github.com/charmbracelet/glow) with the package manager of your choice
 	- The script detects if you have glow installed, if not it will default to the `less` command.
 4. Run the game inside the cloned folder:
