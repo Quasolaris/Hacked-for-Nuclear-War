@@ -63,7 +63,7 @@ ERROR CODE LOOKUP
 
 	case $user_choice in
 		1)
-			glow -p SCS_documentation/SCS_error_codes.md
+			eval "$read_file_command" -p SCS_documentation/SCS_error_codes.md
 			;;
 		2)
 			player_restart_process="0"
