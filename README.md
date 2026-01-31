@@ -1,5 +1,14 @@
 # Hacked for Nuclear War 1.0
 
+## This repository moved to Codeberg
+GitHub is no longer a place where I want to upload and share my code, for different reasons. I therefore decided to move my repositories to Codeberg, you can find this migrated repository here:
+
+https://codeberg.org/Quasolaris/Hacked-for-Nuclear-War
+
+I will leave the repositories as they are for now on GitHub. Later this year I will archive them.
+
+---
+
 You are a captain of a nuclear submarine that is on station somewhere in the depth of the sea. Armed with [SLBMs](https://en.wikipedia.org/wiki/Submarine-launched_ballistic_missile) you are responsible for your nations deterrence and lasting peace on earth. When you get the orders to launch a counter strike, strange things happen to your Submarine Command System (SCS), soon you realize that your submarine was hit by a cyber attack. You need to dive and investigate who is responsible and how to restore your ship to full functionality.
 
 <p align="center">
